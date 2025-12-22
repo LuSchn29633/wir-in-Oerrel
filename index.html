@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wir in Oerrel e.V.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #e5e7eb;
+      --bg-card: #ffffff;
+      --border: #d1d5db;
+      --text: #111827;
+      --text-muted: #6b7280;
+      --primary: #16a34a;
+      --primary-dark: #166534;
+      --radius-card: 16px;
+      --shadow-card: 0 8px 18px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(180deg, #ecfdf3 0%, #f3f4f6 40%, #e5e7eb 100%);
+      color: var(--text);
+    }
+
+    header {
+      background: linear-gradient(90deg, #16a34a, #22c55e);
+      color: #fff;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 10px 25px rgba(22, 163, 74, 0.4);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      height: 70px;
+      width: 70px;
+      object-fit: contain;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.25);
+      padding: 6px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.7rem;
+      letter-spacing: 0.03em;
+    }
+
+    header span {
+      font-size: 0.95rem;
+      opacity: 0.95;
+    }
+
+    main {
+      padding: 22px 16px 86px;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      margin: 0 0 4px;
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #0f172a;
+    }
+
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 18px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #16a34a, #22c55e);
+    }
+
+    p.helper {
+      margin: 0 0 10px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.14);
+      border-color: #cbd5e1;
+    }
+
+    .card h3 {
+      margin: 0 0 4px;
+      font-size: 1rem;
+    }
+
+    .meta {
+      margin: 0 0 6px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .card p {
+      margin: 0 0 6px;
+      font-size: 0.9rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      background: #f1f5f9;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="time"],
+    input[type="number"],
+    input[type="password"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-size: 0.9rem;
+      font-family: inherit;
+      background: #f9fafb;
+      transition: border-color 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: #16a34a;
+      box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+      background: #ffffff;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 60px;
+    }
+
+    .row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .row > * {
+      flex: 1;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      border: none;
+      border-radius: 999px;
+      padding: 7px 16px;
+      font-size: 0.9rem;
+      background: linear-gradient(90deg, #16a34a, #22c55e);
+      color: #fff;
+      align-self: flex-start;
+      box-shadow: 0 6px 14px rgba(22, 163, 74, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(22, 163, 74, 0.55);
+      filter: brightness(1.03);
+    }
+
+    .btn-secondary {
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 0.8rem;
+      border: 1px solid var(--border);
+      background: #f9fafb;
+      color: var(--text);
+      margin-right: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: background 0.12s ease, border-color 0.12s ease;
+    }
+
+    .btn-secondary:hover {
+      background: #e5e7eb;
+      border-color: #cbd5e1;
+    }
+
+    .btn-danger {
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 0.8rem;
+      border: 1px solid #fecaca;
+      background: #fef2f2;
+      color: #b91c1c;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: background 0.12s ease, border-color 0.12s ease;
+    }
+
+    .btn-danger:hover {
+      background: #fee2e2;
+      border-color: #fecaca;
+    }
+
+    .btn-link {
+      border: none;
+      background: transparent;
+      padding: 0;
+      margin: 0;
+      font-size: 0.8rem;
+      color: #2563eb;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .empty {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 4px;
+    }
+
+    .section-subtitle {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #6b7280;
+      margin-top: 8px;
+    }
+
+    /* Tabs unten */
+    .tabbar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: #ffffff;
+      border-top: 1px solid rgba(148, 163, 184, 0.6);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+    }
+
+    .tab-btn {
+      border: none;
+      background: transparent;
+      font-size: 0.8rem;
+      color: #6b7280;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      position: relative;
+    }
+
+    .tab-btn span.icon {
+      font-size: 1.1rem;
+    }
+
+    .tab-btn-active {
+      color: #111827;
+      font-weight: 600;
+    }
+
+    .tab-btn-active span.icon {
+      filter: drop-shadow(0 0 4px rgba(34, 197, 94, 0.6));
+    }
+
+    .tab-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #16a34a;
+      margin-top: 2px;
+      display: none;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page-active {
+      display: block;
+    }
+
+    /* Zugangscode-Bildschirm (hell) */
+    .access-screen {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, #ecfdf3 0%, #f3f4f6 50%, #e5e7eb 100%);
+      padding: 16px;
+    }
+
+    .access-card {
+      background: #ffffff;
+      border-radius: 18px;
+      box-shadow: 0 16px 32px rgba(15,23,42,0.15);
+      padding: 18px 20px 20px;
+      max-width: 420px;
+      width: 100%;
+      color: #111827;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+    }
+
+    .access-card h2 {
+      margin: 0 0 6px;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .access-card h2::before {
+      content: "🔒";
+      width: auto;
+      height: auto;
+      background: none;
+    }
+
+    .access-card .helper {
+      margin-bottom: 12px;
+      color: #4b5563;
+    }
+
+    .access-error {
+      margin-top: 6px;
+      color: #b91c1c;
+      font-size: 0.85rem;
+    }
+
+    .access-card input[type="password"] {
+      background: #f9fafb;
+      color: #111827;
+      border-color: rgba(209, 213, 219, 0.9);
+    }
+
+    /* App-Container ist standardmäßig versteckt, bis Code stimmt */
+    #app-container {
+      display: none;
+    }
+
+    .pill-info {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      background: #ecfdf3;
+      color: #14532d;
+      border-radius: 999px;
+      padding: 3px 10px;
+      margin-bottom: 8px;
+    }
+
+    .pill-alert {
+      background: #fef2f2;
+      color: #b91c1c;
+    }
+
+    .poll-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .poll-btn {
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      padding: 3px 10px;
+      font-size: 0.8rem;
+      background: #f9fafb;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .poll-btn-active {
+      border-color: #16a34a;
+      background: #ecfdf3;
+      color: #14532d;
+    }
+
+    .poll-count {
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+
+    .inline-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 6px 0;
+    }
+
+    @media (min-width: 768px) {
+      header {
+        justify-content: center;
+      }
+
+      header h1 {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Zugangscode-Bildschirm -->
+<div id="access-screen" class="access-screen">
+  <div class="access-card">
+    <h2>Willkommen bei „Wir in Oerrel e.V.“</h2>
+    <p class="helper">
+      Bitte gib den Zugangscode ein, um die Vereins-App zu öffnen.
+    </p>
+    <form id="access-form">
+      <input
+        type="password"
+        id="access-code"
+        placeholder="Zugangscode"
+        required
+      />
+      <button type="submit" class="btn-primary">
+        <span>Freischalten</span> <span>➡️</span>
+      </button>
+      <p id="access-error" class="access-error" style="display:none;">
+        Zugangscode ist falsch. Bitte versuch es erneut.
+      </p>
+    </form>
+    <p class="meta">
+      Hinweis: Die Zugangscodes sind nur für Vereinsmitglieder und den Vorstand bestimmt.
+    </p>
+  </div>
+</div>
+
+<!-- eigentliche App -->
+<div id="app-container">
+  <header>
+    <div class="header-left">
+      <img src="logo.png" class="logo" alt="Vereinslogo">
+      <div>
+        <h1>Wir in Oerrel e.V.</h1>
+        <span>für ein gemeinsames Oerrel</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Veranstaltungen -->
+    <section id="page-events" class="page page-active">
+      <h2>Veranstaltungen</h2>
+      <p class="helper">
+        Offizielle Termine des Vereins. Nur der Vorstand kann Veranstaltungen anlegen oder löschen;
+        alle anderen können sie einsehen, teilnehmen und sich – falls aktiviert – als Helfer melden.
+      </p>
+
+      <!-- Nur für Vorstand sichtbar -->
+      <div class="card" id="event-admin-card">
+        <span class="pill-info">⭐ Nur Vorstand: Veranstaltungen verwalten</span>
+        <h3>Neues Event erstellen</h3>
+        <form id="event-form">
+          <input type="text" id="event-title" placeholder="Titel (z.B. Sommerfest)" required />
+          <div class="row">
+            <input type="date" id="event-date" required />
+            <input type="time" id="event-time" required />
+          </div>
+          <input type="text" id="event-location" placeholder="Ort (z.B. Vereinsheim)" required />
+          <textarea id="event-description" placeholder="Beschreibung" required></textarea>
+
+          <label style="display:flex;align-items:center;gap:6px;font-size:0.85rem;color:#374151;margin-top:4px;">
+            <input type="checkbox" id="event-need-helpers" />
+            Helfer gesucht?
+          </label>
+
+          <div class="section-subtitle">Optionale Umfrage zum Event</div>
+          <input type="text" id="event-poll-question" placeholder="Frage (z.B. Was wollt ihr essen?)" />
+          <input type="text" id="event-poll-option1" placeholder="Option 1 (z.B. Grillen)" />
+          <input type="text" id="event-poll-option2" placeholder="Option 2 (optional)" />
+          <input type="text" id="event-poll-option3" placeholder="Option 3 (optional)" />
+
+          <button type="submit" class="btn-primary">
+            <span>Event speichern</span> <span>📅</span>
+          </button>
+        </form>
+      </div>
+
+      <div id="event-list"></div>
+      <p id="event-empty" class="empty" style="display:none;">Noch keine Veranstaltungen angelegt.</p>
+    </section>
+
+    <!-- Kleinanzeigen -->
+    <section id="page-classifieds" class="page">
+      <h2>Kleinanzeigen</h2>
+      <p class="helper">
+        Biete oder suche Dinge rund um den Verein: Ausrüstung, Werkzeug, Unterstützung usw.
+        Dein vollständiger Name aus dem Profil wird bei den Anzeigen angezeigt.
+      </p>
+
+      <div class="card">
+        <h3>Neue Anzeige erstellen</h3>
+        <form id="ad-form">
+          <input type="text" id="ad-title" placeholder="Titel (z.B. Kay Rhodes Motorradsammlung)" required />
+          <div class="row">
+            <select id="ad-type">
+              <option value="Verkauf">Verkauf</option>
+              <option value="Zu verschenken">Zu verschenken</option>
+              <option value="Suche">Suche</option>
+            </select>
+            <input type="number" id="ad-price" min="0" step="0.01" placeholder="Preis in € (0 = gratis)" />
+          </div>
+          <textarea id="ad-description" placeholder="Beschreibung" required></textarea>
+          <input type="text" id="ad-contact" placeholder="Kontakt (z.B. E-Mail, Handy)" required />
+          <button type="submit" class="btn-primary">
+            <span>Anzeige speichern</span> <span>🛒</span>
+          </button>
+          <p class="meta">
+            Hinweis: Dein Name aus dem Profil wird automatisch bei der Anzeige angezeigt.
+            Anzeigen sind sofort sichtbar – der Vorstand kann sie bei Bedarf sperren oder wieder freigeben.
+          </p>
+        </form>
+      </div>
+
+      <div id="ad-list"></div>
+      <p id="ad-empty" class="empty" style="display:none;">Noch keine Anzeigen.</p>
+    </section>
+
+    <!-- Infoboard -->
+    <section id="page-infoboard" class="page">
+      <h2>Infoboard</h2>
+      <p class="helper">
+        Für spontane Treffen, Kinoabende, Fahrgemeinschaften oder kurze Infos an den Verein.
+        Alle Beiträge werden mit deinem Namen aus dem Profil gekennzeichnet.
+      </p>
+
+      <div class="card">
+        <h3>Neuen Beitrag posten</h3>
+        <form id="post-form">
+          <input type="text" id="post-title" placeholder="Titel (z.B. Kinoabend heute?)" required />
+          <textarea id="post-text" placeholder="Beschreibe kurz, was du planst." required></textarea>
+
+          <div class="section-subtitle">Optionale Umfrage</div>
+          <input type="text" id="post-poll-question" placeholder="Frage (z.B. Welcher Film?)" />
+          <input type="text" id="post-poll-option1" placeholder="Option 1 (z.B. Action)" />
+          <input type="text" id="post-poll-option2" placeholder="Option 2 (optional)" />
+          <input type="text" id="post-poll-option3" placeholder="Option 3 (optional)" />
+
+          <button type="submit" class="btn-primary">
+            <span>Beitrag posten</span> <span>💬</span>
+          </button>
+          <p class="meta">
+            Dein Name aus dem Profil wird automatisch als Verfasser angezeigt.
+          </p>
+        </form>
+      </div>
+
+      <div id="post-list"></div>
+      <p id="post-empty" class="empty" style="display:none;">Noch keine Beiträge.</p>
+    </section>
+
+    <!-- Profil / Info -->
+    <section id="page-profile" class="page">
+      <h2>Profil & App-Info</h2>
+      <p class="helper">
+        Bitte lege ein Profil mit deinem vollständigen Namen an. Der Name wird bei Kleinanzeigen
+        und Infoboard-Beiträgen angezeigt.
+      </p>
+
+      <div class="card">
+        <h3>Dein Profil</h3>
+        <form id="profile-form">
+          <input type="text" id="profile-name" placeholder="Vollständiger Name (z.B. Max Mustermann)" required />
+          <div class="row">
+            <button type="submit" class="btn-primary">
+              <span>Profil speichern</span> <span>✅</span>
+            </button>
+            <button type="button" class="btn-secondary" id="logout-btn">
+              <span>Abmelden</span> <span>🚪</span>
+            </button>
+          </div>
+        </form>
+        <p class="meta" id="role-info">
+          Rolle: Mitglied
+        </p>
+        <p class="meta" id="profile-hint" style="color:#b91c1c; display:none;">
+          Bitte speichere zuerst dein Profil, bevor du Kleinanzeigen oder Beiträge erstellst.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Über diese App</h3>
+        <p>
+          Diese VereinsApp läuft komplett im Browser ohne Server. Alle Daten werden lokal im
+          <code>localStorage</code> gespeichert.
+        </p>
+        <p>
+          Sollten Fragen bestehen, bitte an den Vorstand melden.
+        </p>
+      </div>
+    </section>
+
+    <!-- Impressum -->
+    <section id="page-impressum" class="page">
+      <h2>Impressum</h2>
+      <p class="helper">
+        Die folgenden Angaben sind Platzhalter und können vom Vorstand jederzeit angepasst werden.
+      </p>
+
+      <div class="card">
+        <h3>Verein</h3>
+        <p>Wir in Oerrel e.V.</p>
+        <p class="meta">Adresse: Musterstraße 1, 29392 Oerrel</p>
+        <p class="meta">E-Mail: info@wir-in-oerrel.de</p>
+      </div>
+
+      <div class="card">
+        <h3>Vorstand & Ämter</h3>
+        <p class="meta">1. Vorsitzender: Max Mustermann</p>
+        <p class="meta">2. Vorsitzender: Max Mustermann</p>
+        <p class="meta">Schatzmeister: Max Mustermann</p>
+        <p class="meta">Schriftführer: Max Mustermann</p>
+        <p class="meta">Beisitzende: Max Mustermann</p>
+      </div>
+
+      <div class="card">
+        <h3>Hinweis</h3>
+        <p>
+          Dieses Impressum dient aktuell als Beispiel. Die tatsächlichen Daten des Vereins
+          (Anschrift, verantwortliche Personen, Kontakt) können vom Vorstand ergänzt oder geändert werden.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Tabbar unten -->
+  <nav class="tabbar">
+    <button class="tab-btn tab-btn-active" data-target="events">
+      <span class="icon">📅</span>
+      <span>Events</span>
+    </button>
+    <button class="tab-btn" data-target="classifieds">
+      <span class="icon">🛒</span>
+      <span>Kleinanzeigen</span>
+      <span class="tab-dot" id="classifieds-dot"></span>
+    </button>
+    <button class="tab-btn" data-target="infoboard">
+      <span class="icon">💬</span>
+      <span>Infoboard</span>
+    </button>
+    <button class="tab-btn" data-target="profile">
+      <span class="icon">👤</span>
+      <span>Profil</span>
+    </button>
+    <button class="tab-btn" data-target="impressum">
+      <span class="icon">ℹ️</span>
+      <span>Impressum</span>
+    </button>
+  </nav>
+</div>
+
+<script>
+  // ---------- Hilfsfunktionen für localStorage ----------
+  function loadData(key, fallback) {
+    try {
+      const raw = localStorage.getItem(key);
+      if (!raw) return fallback;
+      return JSON.parse(raw);
+    } catch (e) {
+      console.error("Konnte Daten nicht laden:", key, e);
+      return fallback;
+    }
+  }
+
+  function saveData(key, value) {
+    try {
+      localStorage.setItem(key, JSON.stringify(value));
+    } catch (e) {
+      console.error("Konnte Daten nicht speichern:", key, e);
+    }
+  }
+
+  function setActivePage(pageKey) {
+    Object.values(pages).forEach((p) => p.classList.remove("page-active"));
+    pages[pageKey].classList.add("page-active");
+
+    document
+      .querySelectorAll(".tab-btn")
+      .forEach((b) => b.classList.remove("tab-btn-active"));
+    const btn = document.querySelector('.tab-btn[data-target="' + pageKey + '"]');
+    if (btn) btn.classList.add("tab-btn-active");
+
+    // Wenn Kleinanzeigen geöffnet werden, "neu"-Punkt zurücksetzen
+    if (pageKey === "classifieds") {
+      saveData("vereinsapp_classifieds_last_opened", Date.now());
+      updateClassifiedsDot();
+    }
+  }
+
+  function getProfileName() {
+    const profile = loadData("vereinsapp_profile", { name: "" });
+    return (profile.name || "").trim();
+  }
+
+  // ---------- ICS / Kalender ----------
+  function pad(n) {
+    return n < 10 ? "0" + n : "" + n;
+  }
+
+  function getNowUTCForICS() {
+    const d = new Date();
+    return (
+      d.getUTCFullYear().toString() +
+      pad(d.getUTCMonth() + 1) +
+      pad(d.getUTCDate()) +
+      "T" +
+      pad(d.getUTCHours()) +
+      pad(d.getUTCMinutes()) +
+      pad(d.getUTCSeconds()) +
+      "Z"
+    );
+  }
+
+  function escapeICS(text) {
+    if (!text) return "";
+    return String(text)
+      .replace(/\\/g, "\\\\")
+      .replace(/,/g, "\\,")
+      .replace(/;/g, "\\;")
+      .replace(/\r?\n/g, "\\n");
+  }
+
+  function downloadICSForEvent(ev) {
+    if (!ev || !ev.date) return;
+    const datePart = ev.date.replace(/-/g, "");
+    const timePart = ev.time ? ev.time.replace(":", "") + "00" : "120000";
+    const dtstart = datePart + "T" + timePart;
+
+    const uid = ev.id + "@wirinoerrel";
+    const ics =
+      "BEGIN:VCALENDAR\r\n" +
+      "VERSION:2.0\r\n" +
+      "PRODID:-//Wir in Oerrel//Vereinsapp//DE\r\n" +
+      "BEGIN:VEVENT\r\n" +
+      "UID:" + uid + "\r\n" +
+      "DTSTAMP:" + getNowUTCForICS() + "\r\n" +
+      "DTSTART:" + dtstart + "\r\n" +
+      "SUMMARY:" + escapeICS(ev.title) + "\r\n" +
+      "LOCATION:" + escapeICS(ev.location) + "\r\n" +
+      "DESCRIPTION:" + escapeICS(ev.description) + "\r\n" +
+      "BEGIN:VALARM\r\n" +
+      "TRIGGER:-P1D\r\n" +
+      "ACTION:DISPLAY\r\n" +
+      "DESCRIPTION:Erinnerung\r\n" +
+      "END:VALARM\r\n" +
+      "END:VEVENT\r\n" +
+      "END:VCALENDAR\r\n";
+
+    const blob = new Blob([ics], { type: "text/calendar" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "event-" + ev.id + ".ics";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  // ---------- Tabs / Seiten ----------
+  const pages = {
+    events: document.getElementById("page-events"),
+    classifieds: document.getElementById("page-classifieds"),
+    infoboard: document.getElementById("page-infoboard"),
+    profile: document.getElementById("page-profile"),
+    impressum: document.getElementById("page-impressum"),
+  };
+
+  const classifiedsDot = document.getElementById("classifieds-dot");
+
+  document.querySelectorAll(".tab-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const target = btn.dataset.target;
+      setActivePage(target);
+    });
+  });
+
+  // ---------- Events ----------
+  let events = loadData("vereinsapp_events", []);
+
+  const eventListEl = document.getElementById("event-list");
+  const eventEmptyEl = document.getElementById("event-empty");
+  const eventForm = document.getElementById("event-form");
+  const eventAdminCard = document.getElementById("event-admin-card");
+
+  function renderEvents(currentRole) {
+    eventListEl.innerHTML = "";
+
+    if (!events.length) {
+      eventEmptyEl.style.display = "block";
+      return;
+    } else {
+      eventEmptyEl.style.display = "none";
+    }
+
+    const sorted = [...events].sort((a, b) => {
+      if (a.date === b.date) return (a.time || "").localeCompare(b.time || "");
+      return a.date.localeCompare(b.date);
+    });
+
+    const profileName = getProfileName();
+
+    sorted.forEach((ev) => {
+      ev.attendance = ev.attendance || {};
+      ev.helpers = Array.isArray(ev.helpers) ? ev.helpers : [];
+      const attendees = ev.attendance;
+
+      const needHelpers = ev.needHelpers === undefined ? false : !!ev.needHelpers;
+
+      let yesCount = 0, maybeCount = 0, noCount = 0;
+      Object.values(attendees).forEach((s) => {
+        if (s === "yes") yesCount++;
+        else if (s === "maybe") maybeCount++;
+        else if (s === "no") noCount++;
+      });
+
+      const helperNames = ev.helpers;
+      const helperCount = helperNames.length;
+      const userIsHelper = profileName && helperNames.includes(profileName);
+
+      const card = document.createElement("div");
+      card.className = "card";
+
+      const title = document.createElement("h3");
+      title.textContent = ev.title;
+
+      const meta = document.createElement("p");
+      meta.className = "meta";
+      meta.textContent = `📅 ${ev.date} · ⏰ ${ev.time || "–"} · 📍 ${ev.location}`;
+
+      const desc = document.createElement("p");
+      desc.textContent = ev.description;
+
+      // Teilnahme-Status Anzeige
+      const inline = document.createElement("div");
+      inline.className = "inline-badges";
+
+      const bYes = document.createElement("span");
+      bYes.className = "badge";
+      bYes.textContent = `Ich komme: ${yesCount}`;
+
+      const bMaybe = document.createElement("span");
+      bMaybe.className = "badge";
+      bMaybe.textContent = `Vielleicht: ${maybeCount}`;
+
+      const bNo = document.createElement("span");
+      bNo.className = "badge";
+      bNo.textContent = `Komme nicht: ${noCount}`;
+
+      inline.appendChild(bYes);
+      inline.appendChild(bMaybe);
+      inline.appendChild(bNo);
+
+      // Buttons Teilnahme
+      const btnRowAttend = document.createElement("div");
+      btnRowAttend.className = "row";
+
+      const btnYes = document.createElement("button");
+      btnYes.type = "button";
+      btnYes.className = "btn-secondary";
+      btnYes.textContent = "Ich komme";
+
+      const btnMaybe = document.createElement("button");
+      btnMaybe.type = "button";
+      btnMaybe.className = "btn-secondary";
+      btnMaybe.textContent = "Vielleicht";
+
+      const btnNo = document.createElement("button");
+      btnNo.type = "button";
+      btnNo.className = "btn-secondary";
+      btnNo.textContent = "Komme nicht";
+
+      function ensureProfileForAction() {
+        if (!profileName) {
+          alert("Bitte lege zuerst dein Profil mit vollständigem Namen an.");
+          setActivePage("profile");
+          const profileHint = document.getElementById("profile-hint");
+          if (profileHint) profileHint.style.display = "block";
+          return false;
+        }
+        return true;
+      }
+
+      btnYes.addEventListener("click", () => {
+        if (!ensureProfileForAction()) return;
+        ev.attendance[profileName] = "yes";
+        saveData("vereinsapp_events", events);
+        renderEvents(currentRole);
+      });
+
+      btnMaybe.addEventListener("click", () => {
+        if (!ensureProfileForAction()) return;
+        ev.attendance[profileName] = "maybe";
+        saveData("vereinsapp_events", events);
+        renderEvents(currentRole);
+      });
+
+      btnNo.addEventListener("click", () => {
+        if (!ensureProfileForAction()) return;
+        ev.attendance[profileName] = "no";
+        saveData("vereinsapp_events", events);
+        renderEvents(currentRole);
+      });
+
+      btnRowAttend.appendChild(btnYes);
+      btnRowAttend.appendChild(btnMaybe);
+      btnRowAttend.appendChild(btnNo);
+
+      // Kalender-Button
+      const btnCalendar = document.createElement("button");
+      btnCalendar.type = "button";
+      btnCalendar.className = "btn-secondary";
+      btnCalendar.innerHTML = "<span>In Kalender speichern</span> <span>📲</span>";
+      btnCalendar.addEventListener("click", () => downloadICSForEvent(ev));
+
+      const actionRow = document.createElement("div");
+      actionRow.className = "row";
+      actionRow.appendChild(btnCalendar);
+
+      card.appendChild(title);
+      card.appendChild(meta);
+      card.appendChild(desc);
+      card.appendChild(inline);
+      card.appendChild(btnRowAttend);
+
+      // Helferbereich nur, wenn Helfer gesucht sind
+      if (needHelpers) {
+        const helperP = document.createElement("p");
+        helperP.className = "meta";
+        helperP.textContent = `Helfer:innen: ${helperCount}`;
+        if (userIsHelper) {
+          const span = document.createElement("span");
+          span.style.color = "#16a34a";
+          span.style.marginLeft = "4px";
+          span.textContent = "· Du bist als Helfer eingetragen";
+          helperP.appendChild(span);
+        }
+
+        const helperButtons = document.createElement("div");
+        helperButtons.className = "row";
+
+        const btnHelp = document.createElement("button");
+        btnHelp.type = "button";
+        btnHelp.className = "btn-secondary";
+        btnHelp.textContent = userIsHelper ? "Nicht mehr helfen" : "Ich helfe mit";
+
+        btnHelp.addEventListener("click", () => {
+          if (!ensureProfileForAction()) return;
+          const idx = ev.helpers.indexOf(profileName);
+          if (idx === -1) {
+            ev.helpers.push(profileName);
+          } else {
+            ev.helpers.splice(idx, 1);
+          }
+          saveData("vereinsapp_events", events);
+          renderEvents(currentRole);
+        });
+
+        helperButtons.appendChild(btnHelp);
+
+        card.appendChild(helperP);
+        card.appendChild(helperButtons);
+
+        if (currentRole === "admin" && helperNames.length) {
+          const helpersList = document.createElement("p");
+          helpersList.className = "meta";
+          helpersList.textContent = "Helfer-Liste (nur Vorstand): " + helperNames.join(", ");
+          card.appendChild(helpersList);
+        }
+      }
+
+      card.appendChild(actionRow);
+
+      // Poll für Event
+      if (ev.poll && ev.poll.question && Array.isArray(ev.poll.options) && ev.poll.options.length) {
+        const pollWrap = document.createElement("div");
+        pollWrap.className = "meta";
+        pollWrap.style.marginTop = "6px";
+
+        const q = document.createElement("div");
+        q.textContent = "Umfrage: " + ev.poll.question;
+        pollWrap.appendChild(q);
+
+        const pollRow = document.createElement("div");
+        pollRow.className = "poll-options";
+
+        const voteKey = "vereinsapp_eventvote_" + ev.id;
+        const selectedIndex = loadData(voteKey, null);
+
+        ev.poll.options.forEach((opt, idx) => {
+          if (typeof opt.votes !== "number") opt.votes = 0;
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "poll-btn";
+          if (selectedIndex === idx) {
+            btn.classList.add("poll-btn-active");
+          }
+          const labelSpan = document.createElement("span");
+          labelSpan.textContent = opt.text;
+
+          const countSpan = document.createElement("span");
+          countSpan.className = "poll-count";
+          countSpan.textContent = `(${opt.votes})`;
+
+          btn.appendChild(labelSpan);
+          btn.appendChild(countSpan);
+
+          btn.addEventListener("click", () => {
+            let oldIndex = loadData(voteKey, null);
+            if (typeof oldIndex === "number" && ev.poll.options[oldIndex]) {
+              if (ev.poll.options[oldIndex].votes > 0) {
+                ev.poll.options[oldIndex].votes -= 1;
+              }
+            }
+            ev.poll.options[idx].votes += 1;
+            saveData("vereinsapp_events", events);
+            saveData(voteKey, idx);
+            renderEvents(currentRole);
+          });
+
+          pollRow.appendChild(btn);
+        });
+
+        pollWrap.appendChild(pollRow);
+        card.appendChild(pollWrap);
+      }
+
+      // Löschen-Button nur Vorstand
+      if (currentRole === "admin") {
+        const btnDelete = document.createElement("button");
+        btnDelete.className = "btn-danger";
+        btnDelete.innerHTML = "<span>Event löschen</span> <span>🗑️</span>";
+        btnDelete.addEventListener("click", () => {
+          if (confirm("Dieses Event wirklich löschen?")) {
+            events = events.filter((e) => e.id !== ev.id);
+            saveData("vereinsapp_events", events);
+            renderEvents(currentRole);
+          }
+        });
+        card.appendChild(btnDelete);
+      }
+
+      eventListEl.appendChild(card);
+    });
+  }
+
+  if (eventForm) {
+    eventForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const title = document.getElementById("event-title").value.trim();
+      const date = document.getElementById("event-date").value;
+      const time = document.getElementById("event-time").value;
+      const location = document.getElementById("event-location").value.trim();
+      const description = document
+        .getElementById("event-description")
+        .value.trim();
+
+      const needHelpers = document.getElementById("event-need-helpers").checked;
+
+      const pollQuestion = document.getElementById("event-poll-question").value.trim();
+      const opt1 = document.getElementById("event-poll-option1").value.trim();
+      const opt2 = document.getElementById("event-poll-option2").value.trim();
+      const opt3 = document.getElementById("event-poll-option3").value.trim();
+
+      if (!title || !date || !location || !description) return;
+
+      const newEvent = {
+        id: Date.now().toString(),
+        title,
+        date,
+        time,
+        location,
+        description,
+        attendance: {},
+        helpers: [],
+        needHelpers: needHelpers
+      };
+
+      if (pollQuestion && (opt1 || opt2 || opt3)) {
+        const options = [];
+        if (opt1) options.push({ text: opt1, votes: 0 });
+        if (opt2) options.push({ text: opt2, votes: 0 });
+        if (opt3) options.push({ text: opt3, votes: 0 });
+        if (options.length) {
+          newEvent.poll = {
+            question: pollQuestion,
+            options
+          };
+        }
+      }
+
+      events.push(newEvent);
+      saveData("vereinsapp_events", events);
+      eventForm.reset();
+      renderEvents(currentRole);
+    });
+  }
+
+  // ---------- Kleinanzeigen ----------
+  let ads = loadData("vereinsapp_ads", []);
+
+  const adListEl = document.getElementById("ad-list");
+  const adEmptyEl = document.getElementById("ad-empty");
+  const adForm = document.getElementById("ad-form");
+
+  function updateClassifiedsDot() {
+    if (!classifiedsDot) return;
+    const lastOpened = loadData("vereinsapp_classifieds_last_opened", 0);
+    const hasNew = ads.some(ad => ad.createdAt > lastOpened);
+    classifiedsDot.style.display = hasNew ? "inline-block" : "none";
+  }
+
+  function renderAds(currentRole) {
+    adListEl.innerHTML = "";
+
+    let list = [...ads];
+    if (!list.length) {
+      adEmptyEl.style.display = "block";
+      classifiedsDot.style.display = "none";
+      return;
+    } else {
+      adEmptyEl.style.display = "none";
+    }
+
+    const sorted = list.sort((a, b) => b.createdAt - a.createdAt);
+
+    sorted.forEach((ad) => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      const title = document.createElement("h3");
+      title.textContent = ad.title;
+
+      const badge = document.createElement("div");
+      badge.className = "badge";
+      const priceText =
+        ad.type === "Zu verschenken" || ad.price === 0
+          ? "gratis"
+          : `${ad.price.toFixed(2)} €`;
+      badge.textContent = `${ad.type} · ${priceText}`;
+
+      const desc = document.createElement("p");
+      desc.textContent = ad.description;
+
+      const meta = document.createElement("p");
+      meta.className = "meta";
+      const authorName = ad.authorName || "Unbekannt";
+      meta.textContent = `Von: ${authorName} · Kontakt: ${ad.contact}`;
+
+      card.appendChild(title);
+      card.appendChild(badge);
+      card.appendChild(desc);
+      card.appendChild(meta);
+
+      const statusLine = document.createElement("p");
+      statusLine.className = "meta";
+
+      if (currentRole === "admin") {
+        const statusText = ad.approved === false
+          ? "Status: Gesperrt"
+          : "Status: Sichtbar";
+        statusLine.textContent = statusText;
+
+        if (ad.reportCount && ad.reportCount > 0) {
+          const span = document.createElement("span");
+          span.className = "pill-info pill-alert";
+          span.style.marginLeft = "6px";
+          span.textContent = `Gemeldet (${ad.reportCount}×)`;
+          statusLine.appendChild(span);
+        }
+
+        const modRow = document.createElement("div");
+        modRow.className = "row";
+
+        const btnToggle = document.createElement("button");
+        btnToggle.type = "button";
+        btnToggle.className = "btn-secondary";
+        btnToggle.textContent = ad.approved === false ? "Freigeben" : "Sperren";
+        btnToggle.addEventListener("click", () => {
+          ad.approved = ad.approved === false ? true : false;
+          saveData("vereinsapp_ads", ads);
+          renderAds(currentRole);
+        });
+
+        const btnDelete = document.createElement("button");
+        btnDelete.type = "button";
+        btnDelete.className = "btn-danger";
+        btnDelete.innerHTML = "<span>Anzeige löschen</span> <span>🗑️</span>";
+        btnDelete.addEventListener("click", () => {
+          if (confirm("Diese Anzeige wirklich löschen?")) {
+            ads = ads.filter((a) => a.id !== ad.id);
+            saveData("vereinsapp_ads", ads);
+            renderAds(currentRole);
+          }
+        });
+
+        modRow.appendChild(btnToggle);
+        modRow.appendChild(btnDelete);
+
+        card.appendChild(statusLine);
+        card.appendChild(modRow);
+      } else {
+        if (ad.approved === false) {
+          // gesperrt -> normale Mitglieder sehen sie nicht
+          return;
+        }
+        const actionRow = document.createElement("div");
+        actionRow.className = "row";
+
+        const btnReport = document.createElement("button");
+        btnReport.type = "button";
+        btnReport.className = "btn-link";
+        btnReport.textContent = "Melden (Missbrauch)";
+
+        btnReport.addEventListener("click", () => {
+          ad.reported = true;
+          ad.reportCount = (ad.reportCount || 0) + 1;
+          saveData("vereinsapp_ads", ads);
+          alert("Danke für den Hinweis. Der Vorstand wird sich das ansehen.");
+        });
+
+        actionRow.appendChild(btnReport);
+        card.appendChild(actionRow);
+      }
+
+      adListEl.appendChild(card);
+    });
+
+    updateClassifiedsDot();
+  }
+
+  if (adForm) {
+    adForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const profileName = getProfileName();
+      if (!profileName) {
+        alert("Bitte lege zuerst dein Profil mit vollständigem Namen an.");
+        setActivePage("profile");
+        const profileHint = document.getElementById("profile-hint");
+        if (profileHint) profileHint.style.display = "block";
+        return;
+      }
+
+      const title = document.getElementById("ad-title").value.trim();
+      const type = document.getElementById("ad-type").value;
+      const priceValue = document.getElementById("ad-price").value;
+      const description = document.getElementById("ad-description").value.trim();
+      const contact = document.getElementById("ad-contact").value.trim();
+
+      if (!title || !description || !contact) return;
+
+      let price = Number(priceValue);
+      if (Number.isNaN(price)) price = 0;
+
+      const newAd = {
+        id: Date.now().toString(),
+        title,
+        type,
+        price,
+        description,
+        contact,
+        authorName: profileName,
+        createdAt: Date.now(),
+        approved: true,      // ✅ immer direkt sichtbar
+        reported: false,
+        reportCount: 0
+      };
+
+      ads.push(newAd);
+      saveData("vereinsapp_ads", ads);
+      adForm.reset();
+      renderAds(currentRole);
+    });
+  }
+
+  // ---------- Infoboard ----------
+  let posts = loadData("vereinsapp_posts", []);
+
+  const postListEl = document.getElementById("post-list");
+  const postEmptyEl = document.getElementById("post-empty");
+  const postForm = document.getElementById("post-form");
+
+  function formatTime(ts) {
+    const d = new Date(ts);
+    return (
+      d.toLocaleDateString("de-DE", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "2-digit",
+      }) +
+      " · " +
+      d.toLocaleTimeString("de-DE", {
+        hour: "2-digit",
+        minute: "2-digit",
+      })
+    );
+  }
+
+  function renderPosts(currentRole) {
+    postListEl.innerHTML = "";
+
+    let list = [...posts];
+    if (!list.length) {
+      postEmptyEl.style.display = "block";
+      return;
+    } else {
+      postEmptyEl.style.display = "none";
+    }
+
+    const sorted = list.sort((a, b) => b.createdAt - a.createdAt);
+
+    sorted.forEach((post) => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      const title = document.createElement("h3");
+      title.textContent = post.title;
+
+      const meta = document.createElement("p");
+      meta.className = "meta";
+      const author = post.authorName ? post.authorName : "Anonym";
+      meta.textContent = `${author} · ${formatTime(post.createdAt)}`;
+
+      const text = document.createElement("p");
+      text.textContent = post.text;
+
+      card.appendChild(title);
+      card.appendChild(meta);
+      card.appendChild(text);
+
+      if (post.poll && post.poll.question && Array.isArray(post.poll.options) && post.poll.options.length) {
+        const pollWrap = document.createElement("div");
+        pollWrap.className = "meta";
+        pollWrap.style.marginTop = "6px";
+
+        const q = document.createElement("div");
+        q.textContent = "Umfrage: " + post.poll.question;
+        pollWrap.appendChild(q);
+
+        const pollRow = document.createElement("div");
+        pollRow.className = "poll-options";
+
+        const voteKey = "vereinsapp_postvote_" + post.id;
+        const selectedIndex = loadData(voteKey, null);
+
+        post.poll.options.forEach((opt, idx) => {
+          if (typeof opt.votes !== "number") opt.votes = 0;
+
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "poll-btn";
+          if (selectedIndex === idx) {
+            btn.classList.add("poll-btn-active");
+          }
+
+          const labelSpan = document.createElement("span");
+          labelSpan.textContent = opt.text;
+
+          const countSpan = document.createElement("span");
+          countSpan.className = "poll-count";
+          countSpan.textContent = `(${opt.votes})`;
+
+          btn.appendChild(labelSpan);
+          btn.appendChild(countSpan);
+
+          btn.addEventListener("click", () => {
+            let oldIndex = loadData(voteKey, null);
+            if (typeof oldIndex === "number" && post.poll.options[oldIndex]) {
+              if (post.poll.options[oldIndex].votes > 0) {
+                post.poll.options[oldIndex].votes -= 1;
+              }
+            }
+            post.poll.options[idx].votes += 1;
+            saveData("vereinsapp_posts", posts);
+            saveData(voteKey, idx);
+            renderPosts(currentRole);
+          });
+
+          pollRow.appendChild(btn);
+        });
+
+        pollWrap.appendChild(pollRow);
+        card.appendChild(pollWrap);
+      }
+
+      if (currentRole === "admin") {
+        const statusLine = document.createElement("p");
+        statusLine.className = "meta";
+        statusLine.textContent = "Status: Sichtbar";
+
+        if (post.reportCount && post.reportCount > 0) {
+          const span = document.createElement("span");
+          span.className = "pill-info pill-alert";
+          span.style.marginLeft = "6px";
+          span.textContent = `Gemeldet (${post.reportCount}×)`;
+          statusLine.appendChild(span);
+        }
+
+        const modRow = document.createElement("div");
+        modRow.className = "row";
+
+        const btnDelete = document.createElement("button");
+        btnDelete.type = "button";
+        btnDelete.className = "btn-danger";
+        btnDelete.innerHTML = "<span>Beitrag löschen</span> <span>🗑️</span>";
+        btnDelete.addEventListener("click", () => {
+          if (confirm("Diesen Beitrag wirklich löschen?")) {
+            posts = posts.filter((p) => p.id !== post.id);
+            saveData("vereinsapp_posts", posts);
+            renderPosts(currentRole);
+          }
+        });
+
+        modRow.appendChild(btnDelete);
+
+        card.appendChild(statusLine);
+        card.appendChild(modRow);
+      } else {
+        const actionRow = document.createElement("div");
+        actionRow.className = "row";
+
+        const btnReport = document.createElement("button");
+        btnReport.type = "button";
+        btnReport.className = "btn-link";
+        btnReport.textContent = "Melden (Missbrauch)";
+
+        btnReport.addEventListener("click", () => {
+          post.reported = true;
+          post.reportCount = (post.reportCount || 0) + 1;
+          saveData("vereinsapp_posts", posts);
+          alert("Danke für den Hinweis. Der Vorstand wird sich das ansehen.");
+        });
+
+        actionRow.appendChild(btnReport);
+        card.appendChild(actionRow);
+      }
+
+      postListEl.appendChild(card);
+    });
+  }
+
+  if (postForm) {
+    postForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const profileName = getProfileName();
+      if (!profileName) {
+        alert("Bitte lege zuerst dein Profil mit vollständigem Namen an.");
+        setActivePage("profile");
+        const profileHint = document.getElementById("profile-hint");
+        if (profileHint) profileHint.style.display = "block";
+        return;
+      }
+
+      const title = document.getElementById("post-title").value.trim();
+      const text = document.getElementById("post-text").value.trim();
+
+      const pollQuestion = document.getElementById("post-poll-question").value.trim();
+      const opt1 = document.getElementById("post-poll-option1").value.trim();
+      const opt2 = document.getElementById("post-poll-option2").value.trim();
+      const opt3 = document.getElementById("post-poll-option3").value.trim();
+
+      if (!title || !text) return;
+
+      const newPost = {
+        id: Date.now().toString(),
+        title,
+        text,
+        authorName: profileName,
+        createdAt: Date.now(),
+        reported: false,
+        reportCount: 0
+      };
+
+      if (pollQuestion && (opt1 || opt2 || opt3)) {
+        const options = [];
+        if (opt1) options.push({ text: opt1, votes: 0 });
+        if (opt2) options.push({ text: opt2, votes: 0 });
+        if (opt3) options.push({ text: opt3, votes: 0 });
+        if (options.length) {
+          newPost.poll = {
+            question: pollQuestion,
+            options
+          };
+        }
+      }
+
+      posts.push(newPost);
+      saveData("vereinsapp_posts", posts);
+      postForm.reset();
+      renderPosts(currentRole);
+    });
+  }
+
+  // ---------- Profil ----------
+  const profileForm = document.getElementById("profile-form");
+  const profileNameInput = document.getElementById("profile-name");
+  const logoutBtn = document.getElementById("logout-btn");
+  const roleInfoEl = document.getElementById("role-info");
+
+  let currentRole = "member"; // "member" oder "admin"
+
+  function loadProfile() {
+    const profile = loadData("vereinsapp_profile", { name: "" });
+    profileNameInput.value = profile.name || "";
+  }
+
+  function updateRoleDisplay() {
+    if (!roleInfoEl) return;
+    if (currentRole === "admin") {
+      roleInfoEl.textContent = "Rolle: Vorstand";
+      if (eventAdminCard) eventAdminCard.style.display = "block";
+    } else {
+      roleInfoEl.textContent = "Rolle: Mitglied";
+      if (eventAdminCard) eventAdminCard.style.display = "none";
+    }
+  }
+
+  if (profileForm) {
+    profileForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = profileNameInput.value.trim();
+      if (!name) {
+        alert("Bitte gib deinen vollständigen Namen ein.");
+        return;
+      }
+      saveData("vereinsapp_profile", { name });
+      const profileHint = document.getElementById("profile-hint");
+      if (profileHint) profileHint.style.display = "none";
+      alert("Profil gespeichert.");
+    });
+  }
+
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
+      if (!confirm("Möchtest du dich wirklich abmelden?")) return;
+      localStorage.removeItem("vereinsapp_access_granted");
+      localStorage.removeItem("vereinsapp_role");
+      document.getElementById("app-container").style.display = "none";
+      document.getElementById("access-screen").style.display = "flex";
+      document.getElementById("access-code").value = "";
+    });
+  }
+
+  // ---------- Zugangscode / App-Freigabe ----------
+  const ACCESS_CODE_MEMBER = "OERREL2025";   // Code für Mitglieder
+  const ACCESS_CODE_ADMIN  = "VORSTAND2025"; // Code für Vorstand
+
+  const accessScreen = document.getElementById("access-screen");
+  const appContainer = document.getElementById("app-container");
+  const accessForm = document.getElementById("access-form");
+  const accessInput = document.getElementById("access-code");
+  const accessError = document.getElementById("access-error");
+
+  function showApp() {
+    accessScreen.style.display = "none";
+    appContainer.style.display = "block";
+
+    const storedRole = loadData("vereinsapp_role", "member");
+    currentRole = storedRole === "admin" ? "admin" : "member";
+    updateRoleDisplay();
+
+    loadProfile();
+    renderEvents(currentRole);
+    renderAds(currentRole);
+    renderPosts(currentRole);
+
+    const profileName = getProfileName();
+    if (!profileName) {
+      const profileHint = document.getElementById("profile-hint");
+      if (profileHint) profileHint.style.display = "block";
+      setActivePage("profile");
+    } else {
+      // Kleinanzeigen-Indikator initial berechnen
+      updateClassifiedsDot();
+    }
+  }
+
+  const hasAccess = loadData("vereinsapp_access_granted", false);
+  if (hasAccess === true) {
+    const storedRole = loadData("vereinsapp_role", "member");
+    currentRole = storedRole === "admin" ? "admin" : "member";
+    showApp();
+  } else {
+    accessScreen.style.display = "flex";
+  }
+
+  if (accessForm) {
+    accessForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const code = accessInput.value.trim();
+
+      if (code === ACCESS_CODE_MEMBER) {
+        saveData("vereinsapp_access_granted", true);
+        saveData("vereinsapp_role", "member");
+        currentRole = "member";
+        accessError.style.display = "none";
+        showApp();
+      } else if (code === ACCESS_CODE_ADMIN) {
+        saveData("vereinsapp_access_granted", true);
+        saveData("vereinsapp_role", "admin");
+        currentRole = "admin";
+        accessError.style.display = "none";
+        showApp();
+      } else {
+        accessError.style.display = "block";
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
