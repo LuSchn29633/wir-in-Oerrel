@@ -1,152 +1,92 @@
+```html
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
   <title>Wir in Oerrel e.V.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
-    :root {
-      --bg: #e5e7eb;
-      --bg-card: #ffffff;
-      --border: #d1d5db;
-      --text: #111827;
-      --text-muted: #6b7280;
-      --primary: #16a34a;
-      --primary-dark: #166534;
-      --radius-card: 16px;
-      --shadow-card: 0 8px 18px rgba(15, 23, 42, 0.08);
+    :root{
+      --bg:#e5e7eb;
+      --bg-card:#ffffff;
+      --border:#d1d5db;
+      --text:#111827;
+      --text-muted:#6b7280;
+      --primary:#16a34a;
+      --primary-dark:#166534;
+      --radius-card:16px;
+      --shadow-card:0 8px 18px rgba(15,23,42,0.08);
     }
 
-    * {
-      box-sizing: border-box;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+      background:linear-gradient(180deg,#ecfdf3 0%,#f3f4f6 40%,#e5e7eb 100%);
+      color:var(--text);
     }
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: linear-gradient(180deg, #ecfdf3 0%, #f3f4f6 40%, #e5e7eb 100%);
-      color: var(--text);
+    header{
+      background:linear-gradient(90deg,#16a34a,#22c55e);
+      color:#fff;
+      padding:12px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      box-shadow:0 10px 25px rgba(22,163,74,0.4);
+      position:sticky;
+      top:0;
+      z-index:40;
+    }
+    .header-right{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+    .header-left{display:flex;align-items:center;gap:12px}
+    .logo{
+      height:70px;width:70px;object-fit:contain;border-radius:14px;
+      background:rgba(255,255,255,0.25);padding:6px;
+      box-shadow:0 6px 14px rgba(0,0,0,0.15)
+    }
+    header h1{margin:0;font-size:1.7rem;letter-spacing:0.03em}
+    header span{font-size:0.95rem;opacity:0.95}
+
+    main{padding:22px 16px 86px;max-width:880px;margin:0 auto}
+
+    h2{
+      margin:0 0 4px;font-size:1.15rem;display:flex;align-items:center;gap:6px;color:#0f172a
+    }
+    h2::before{
+      content:"";display:inline-block;width:6px;height:18px;border-radius:999px;
+      background:linear-gradient(180deg,#16a34a,#22c55e);
     }
 
-    header {
-      background: linear-gradient(90deg, #16a34a, #22c55e);
-      color: #fff;
-      padding: 12px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 10px 25px rgba(22, 163, 74, 0.4);
-      position: sticky;
-      top: 0;
-      z-index: 40;
+    p.helper{margin:0 0 10px;font-size:0.9rem;color:var(--text-muted)}
+
+    .card{
+      background:var(--bg-card);
+      border-radius:var(--radius-card);
+      box-shadow:var(--shadow-card);
+      padding:12px 14px;
+      margin-bottom:14px;
+      border:1px solid rgba(209,213,219,0.9);
+      transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+    }
+    .card:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(15,23,42,0.14);border-color:#cbd5e1}
+    .card h3{margin:0 0 4px;font-size:1rem}
+    .meta{margin:0 0 6px;font-size:0.82rem;color:var(--text-muted)}
+    .card p{margin:0 0 6px;font-size:0.9rem}
+
+    .badge{
+      display:inline-block;padding:2px 8px;border-radius:999px;font-size:0.75rem;
+      border:1px solid var(--border);color:var(--text-muted);margin-bottom:4px;background:#f1f5f9;
     }
 
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo {
-      height: 70px;
-      width: 70px;
-      object-fit: contain;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.25);
-      padding: 6px;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 1.7rem;
-      letter-spacing: 0.03em;
-    }
-
-    header span {
-      font-size: 0.95rem;
-      opacity: 0.95;
-    }
-
-    main {
-      padding: 22px 16px 86px;
-      max-width: 880px;
-      margin: 0 auto;
-    }
-
-    h2 {
-      margin: 0 0 4px;
-      font-size: 1.15rem;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: #0f172a;
-    }
-
-    h2::before {
-      content: "";
-      display: inline-block;
-      width: 6px;
-      height: 18px;
-      border-radius: 999px;
-      background: linear-gradient(180deg, #16a34a, #22c55e);
-    }
-
-    p.helper {
-      margin: 0 0 10px;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .card {
-      background: var(--bg-card);
-      border-radius: var(--radius-card);
-      box-shadow: var(--shadow-card);
-      padding: 12px 14px;
-      margin-bottom: 14px;
-      border: 1px solid rgba(209, 213, 219, 0.9);
-      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.14);
-      border-color: #cbd5e1;
-    }
-
-    .card h3 {
-      margin: 0 0 4px;
-      font-size: 1rem;
-    }
-
-    .meta {
-      margin: 0 0 6px;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-    }
-
-    .card p {
-      margin: 0 0 6px;
-      font-size: 0.9rem;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      margin-bottom: 4px;
-      background: #f1f5f9;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 12px;
-    }
+    form{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
 
     input[type="text"],
     input[type="date"],
@@ -154,342 +94,185 @@
     input[type="number"],
     input[type="password"],
     textarea,
-    select {
-      width: 100%;
-      padding: 8px 10px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      font-size: 0.9rem;
-      font-family: inherit;
-      background: #f9fafb;
-      transition: border-color 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+    select{
+      width:100%;
+      padding:8px 10px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      font-size:0.9rem;
+      font-family:inherit;
+      background:#f9fafb;
+      transition:border-color .12s ease, box-shadow .12s ease, background .12s ease;
     }
 
-    input:focus,
-    textarea:focus,
-    select:focus {
-      outline: none;
-      border-color: #16a34a;
-      box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
-      background: #ffffff;
+    input:focus, textarea:focus, select:focus{
+      outline:none;border-color:#16a34a;
+      box-shadow:0 0 0 2px rgba(34,197,94,0.2);
+      background:#ffffff;
     }
 
-    textarea {
-      resize: vertical;
-      min-height: 60px;
+    /* WebKit Autofill-Farbgebung */
+    input:-webkit-autofill,
+    textarea:-webkit-autofill,
+    select:-webkit-autofill{
+      -webkit-box-shadow:0 0 0px 1000px #ffffff inset !important;
+      -webkit-text-fill-color:#111827 !important;
+      transition:background-color 9999s ease-in-out 0s;
     }
 
-    .row {
-      display: flex;
-      gap: 8px;
+    textarea{resize:vertical;min-height:60px}
+    .row{display:flex;gap:8px}
+    .row>*{flex:1}
+    button{font-family:inherit;cursor:pointer}
+
+    .btn-primary{
+      border:none;border-radius:999px;padding:7px 16px;font-size:0.9rem;
+      background:linear-gradient(90deg,#16a34a,#22c55e);color:#fff;
+      align-self:flex-start;box-shadow:0 6px 14px rgba(22,163,74,0.4);
+      display:inline-flex;align-items:center;gap:6px;
+      transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
+    }
+    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(22,163,74,0.55);filter:brightness(1.03)}
+
+    .btn-secondary{
+      border-radius:999px;padding:5px 12px;font-size:0.85rem;
+      border:1px solid rgba(255,255,255,0.35);
+      background:rgba(255,255,255,0.18);
+      color:#fff;
+      display:inline-flex;align-items:center;gap:6px;
+      transition:transform .12s ease, filter .12s ease;
+      backdrop-filter:blur(10px);
+    }
+    .btn-secondary:hover{transform:translateY(-1px);filter:brightness(1.03)}
+
+    .btn-secondary-light{
+      border-radius:999px;padding:5px 12px;font-size:0.8rem;
+      border:1px solid var(--border);
+      background:#f9fafb;color:var(--text);
+      display:inline-flex;align-items:center;gap:6px;
+      transition:background .12s ease, border-color .12s ease;
+    }
+    .btn-secondary-light:hover{background:#e5e7eb;border-color:#cbd5e1}
+
+    .btn-danger{
+      border-radius:999px;padding:5px 10px;font-size:0.8rem;
+      border:1px solid #fecaca;background:#fef2f2;color:#b91c1c;
+      display:inline-flex;align-items:center;gap:4px;
+      transition:background .12s ease, border-color .12s ease;
+    }
+    .btn-danger:hover{background:#fee2e2;border-color:#fecaca}
+
+    .btn-link{
+      border:none;background:transparent;padding:0;margin:0;font-size:0.8rem;
+      color:#2563eb;text-decoration:underline;cursor:pointer;
     }
 
-    .row > * {
-      flex: 1;
+    .empty{font-size:0.85rem;color:var(--text-muted);font-style:italic;margin-top:4px}
+
+    .section-subtitle{
+      font-size:0.8rem;font-weight:600;text-transform:uppercase;
+      letter-spacing:0.08em;color:#6b7280;margin-top:8px;
     }
 
-    button {
-      font-family: inherit;
-      cursor: pointer;
+    .pill-info{
+      display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;
+      background:#ecfdf3;color:#14532d;border-radius:999px;padding:3px 10px;
+      margin-bottom:8px;border:1px solid rgba(22,163,74,0.18);
     }
-
-    .btn-primary {
-      border: none;
-      border-radius: 999px;
-      padding: 7px 16px;
-      font-size: 0.9rem;
-      background: linear-gradient(90deg, #16a34a, #22c55e);
-      color: #fff;
-      align-self: flex-start;
-      box-shadow: 0 6px 14px rgba(22, 163, 74, 0.4);
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 8px 18px rgba(22, 163, 74, 0.55);
-      filter: brightness(1.03);
-    }
-
-    .btn-secondary {
-      border-radius: 999px;
-      padding: 5px 12px;
-      font-size: 0.8rem;
-      border: 1px solid var(--border);
-      background: #f9fafb;
-      color: var(--text);
-      margin-right: 4px;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      transition: background 0.12s ease, border-color 0.12s ease;
-    }
-
-    .btn-secondary:hover {
-      background: #e5e7eb;
-      border-color: #cbd5e1;
-    }
-
-    .btn-danger {
-      border-radius: 999px;
-      padding: 5px 10px;
-      font-size: 0.8rem;
-      border: 1px solid #fecaca;
-      background: #fef2f2;
-      color: #b91c1c;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      transition: background 0.12s ease, border-color 0.12s ease;
-    }
-
-    .btn-danger:hover {
-      background: #fee2e2;
-      border-color: #fecaca;
-    }
-
-    .btn-link {
-      border: none;
-      background: transparent;
-      padding: 0;
-      margin: 0;
-      font-size: 0.8rem;
-      color: #2563eb;
-      text-decoration: underline;
-      cursor: pointer;
-    }
-
-    .empty {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      font-style: italic;
-      margin-top: 4px;
-    }
-
-    .section-subtitle {
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #6b7280;
-      margin-top: 8px;
-    }
+    .pill-alert{background:#fef2f2;color:#b91c1c;border-color:#fecaca}
 
     /* Tabs unten */
-    .tabbar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 60px;
-      background: #ffffff;
-      border-top: 1px solid rgba(148, 163, 184, 0.6);
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      z-index: 50;
-      backdrop-filter: blur(10px);
+    .tabbar{
+      position:fixed;bottom:0;left:0;right:0;height:60px;
+      background:#ffffff;border-top:1px solid rgba(148,163,184,0.6);
+      display:flex;justify-content:space-around;align-items:center;
+      z-index:50;backdrop-filter:blur(10px);
+    }
+    .tab-btn{
+      border:none;background:transparent;font-size:0.8rem;color:#6b7280;
+      display:flex;flex-direction:column;align-items:center;gap:2px;position:relative;
+      min-width:62px;
+    }
+    .tab-btn span.icon{font-size:1.1rem}
+    .tab-btn-active{color:#111827;font-weight:600}
+    .tab-btn-active span.icon{filter:drop-shadow(0 0 4px rgba(34,197,94,0.6))}
+    .tab-dot{width:8px;height:8px;border-radius:999px;background:#16a34a;margin-top:2px;display:none}
+
+    .page{display:none}
+    .page-active{display:block}
+
+    #app-container,#public-container{display:none}
+
+    /* Galerie */
+    .gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    @media (min-width:640px){.gallery-grid{grid-template-columns:repeat(3,1fr)}}
+    .gallery-grid img{
+      width:100%;height:140px;object-fit:cover;border-radius:14px;
+      border:1px solid rgba(209,213,219,0.9);box-shadow:0 8px 18px rgba(15,23,42,0.08);
     }
 
-    .tab-btn {
-      border: none;
-      background: transparent;
-      font-size: 0.8rem;
-      color: #6b7280;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-      position: relative;
+    /* Hero */
+    .hero{
+      margin-top:6px;padding:14px 14px 10px;border-radius:18px;
+      color:#0f172a;border:1px solid rgba(22,163,74,0.15);
+      background:
+        radial-gradient(1000px 280px at 10% 0%, rgba(34,197,94,0.20), transparent 55%),
+        radial-gradient(900px 260px at 95% 20%, rgba(16,185,129,0.18), transparent 60%),
+        #ffffff;
+      box-shadow:0 12px 30px rgba(15,23,42,0.08);
+      margin-bottom:14px;
+    }
+    .hero h2{margin-bottom:6px}
+    .hero p{margin:0;color:#334155}
+    .hero-actions{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap}
+    .hero .btn-primary{align-self:unset}
+
+    /* Modal Login */
+    .modal-backdrop{
+      position:fixed;inset:0;background:rgba(2,6,23,0.55);
+      display:none;align-items:center;justify-content:center;padding:16px;z-index:60;
+    }
+    .modal{
+      width:100%;max-width:430px;background:#ffffff;border-radius:18px;
+      box-shadow:0 18px 45px rgba(15,23,42,0.22);
+      border:1px solid rgba(209,213,219,0.95);overflow:hidden;
+    }
+    .modal-head{
+      padding:14px 16px;background:linear-gradient(90deg,#16a34a,#22c55e);color:#fff;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .modal-head strong{font-size:1rem}
+    .modal-body{padding:14px 16px 16px}
+    .modal-close{
+      border:none;background:rgba(255,255,255,0.18);color:#fff;border-radius:999px;
+      padding:6px 10px;cursor:pointer;
+    }
+    .modal-hint{margin:8px 0 0;font-size:0.85rem;color:#64748b}
+    .modal-error{margin-top:8px;font-size:0.85rem;color:#b91c1c;display:none}
+
+    /* Dummy Felder gegen Autofill */
+    .hp-field{
+      position:absolute !important;
+      left:-9999px !important;
+      width:1px !important;height:1px !important;
+      opacity:0 !important;
+      pointer-events:none !important;
     }
 
-    .tab-btn span.icon {
-      font-size: 1.1rem;
-    }
+  @media (min-width:768px){
+  header{justify-content:space-between}
+  header h1{font-size:1.9rem}
+}
 
-    .tab-btn-active {
-      color: #111827;
-      font-weight: 600;
-    }
-
-    .tab-btn-active span.icon {
-      filter: drop-shadow(0 0 4px rgba(34, 197, 94, 0.6));
-    }
-
-    .tab-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #16a34a;
-      margin-top: 2px;
-      display: none;
-    }
-
-    .page {
-      display: none;
-    }
-
-    .page-active {
-      display: block;
-    }
-
-    /* Zugangscode-Bildschirm (hell) */
-    .access-screen {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(180deg, #ecfdf3 0%, #f3f4f6 50%, #e5e7eb 100%);
-      padding: 16px;
-    }
-
-    .access-card {
-      background: #ffffff;
-      border-radius: 18px;
-      box-shadow: 0 16px 32px rgba(15,23,42,0.15);
-      padding: 18px 20px 20px;
-      max-width: 420px;
-      width: 100%;
-      color: #111827;
-      border: 1px solid rgba(209, 213, 219, 0.9);
-    }
-
-    .access-card h2 {
-      margin: 0 0 6px;
-      font-size: 1.3rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .access-card h2::before {
-      content: "🔒";
-      width: auto;
-      height: auto;
-      background: none;
-    }
-
-    .access-card .helper {
-      margin-bottom: 12px;
-      color: #4b5563;
-    }
-
-    .access-error {
-      margin-top: 6px;
-      color: #b91c1c;
-      font-size: 0.85rem;
-    }
-
-    .access-card input[type="password"] {
-      background: #f9fafb;
-      color: #111827;
-      border-color: rgba(209, 213, 219, 0.9);
-    }
-
-    /* App-Container ist standardmäßig versteckt, bis Code stimmt */
-    #app-container {
-      display: none;
-    }
-
-    .pill-info {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.78rem;
-      background: #ecfdf3;
-      color: #14532d;
-      border-radius: 999px;
-      padding: 3px 10px;
-      margin-bottom: 8px;
-    }
-
-    .pill-alert {
-      background: #fef2f2;
-      color: #b91c1c;
-    }
-
-    .poll-options {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 4px;
-    }
-
-    .poll-btn {
-      border-radius: 999px;
-      border: 1px solid #d1d5db;
-      padding: 3px 10px;
-      font-size: 0.8rem;
-      background: #f9fafb;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-    }
-
-    .poll-btn-active {
-      border-color: #16a34a;
-      background: #ecfdf3;
-      color: #14532d;
-    }
-
-    .poll-count {
-      font-size: 0.75rem;
-      color: #6b7280;
-    }
-
-    .inline-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin: 6px 0;
-    }
-
-    @media (min-width: 768px) {
-      header {
-        justify-content: center;
-      }
-
-      header h1 {
-        font-size: 1.9rem;
-      }
-    }
   </style>
 </head>
+
 <body>
 
-<!-- Zugangscode-Bildschirm -->
-<div id="access-screen" class="access-screen">
-  <div class="access-card">
-    <h2>Willkommen bei „Wir in Oerrel e.V.“</h2>
-    <p class="helper">
-      Bitte gib den Zugangscode ein, um die Vereins-App zu öffnen.
-    </p>
-    <form id="access-form">
-      <input
-        type="password"
-        id="access-code"
-        placeholder="Zugangscode"
-        required
-      />
-      <button type="submit" class="btn-primary">
-        <span>Freischalten</span> <span>➡️</span>
-      </button>
-      <p id="access-error" class="access-error" style="display:none;">
-        Zugangscode ist falsch. Bitte versuch es erneut.
-      </p>
-    </form>
-    <p class="meta">
-      Hinweis: Die Zugangscodes sind nur für Vereinsmitglieder und den Vorstand bestimmt.
-    </p>
-  </div>
-</div>
-
-<!-- eigentliche App -->
-<div id="app-container">
+<!-- =======================
+     PUBLIC
+     ======================= -->
+<div id="public-container">
   <header>
     <div class="header-left">
       <img src="logo.png" class="logo" alt="Vereinslogo">
@@ -498,6 +281,151 @@
         <span>für ein gemeinsames Oerrel</span>
       </div>
     </div>
+
+    <div class="header-right">
+  <button type="button" class="btn-secondary" id="header-open-app-btn">
+    <span>👥</span><span>Mitglieder</span>
+  </button>
+</div>
+
+  </header>
+
+  <main>
+    <div class="hero">
+      <h2>Willkommen in Oerrel 👋</h2>
+      <p>
+        Wir stärken das Dorfleben: Veranstaltungen, Aktionen und gemeinsames Engagement für Jung & Alt.
+      </p>
+      <div class="hero-actions">
+        <button type="button" class="btn-primary" id="hero-events-btn">
+          <span>Zu den Events</span><span>📅</span>
+        </button>
+        <button type="button" class="btn-primary" id="hero-about-btn">
+          <span>Wer wir sind</span><span>🌿</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Public: Events -->
+    <section id="pub-page-events" class="page page-active">
+      <h2>Veranstaltungen</h2>
+      <p class="helper">Alle offiziellen Termine des Vereins – kurz & übersichtlich.</p>
+      <div id="pub-event-list"></div>
+      <p id="pub-event-empty" class="empty" style="display:none;">Noch keine Veranstaltungen angelegt.</p>
+    </section>
+
+    <!-- Public: Über uns -->
+    <section id="pub-page-about" class="page">
+      <h2>Über unseren Verein</h2>
+      <p class="helper">Kurzbeschreibung & Fotocollage.</p>
+
+      <div class="card">
+        <h3>Kurzbeschreibung</h3>
+        <p id="pub-about-text" class="meta"></p>
+      </div>
+
+      <div class="card" id="pub-about-admin" style="display:none;">
+        <span class="pill-info">⭐ Nur Vorstand: Inhalte bearbeiten</span>
+        <h3>Über-uns Text & Bilder bearbeiten</h3>
+        <form id="pub-about-form" autocomplete="off">
+          <input class="hp-field" type="text" name="fake_user_pub" autocomplete="username">
+          <input class="hp-field" type="password" name="fake_pass_pub" autocomplete="current-password">
+
+          <textarea id="pub-about-input" placeholder="Kurzbeschreibung des Vereins" required autocomplete="off" spellcheck="false"></textarea>
+          <div class="section-subtitle">Foto Collage (Mehrfachauswahl möglich)</div>
+          <input type="file" id="pub-gallery-input" accept="image/*" multiple />
+          <div class="row">
+            <button type="submit" class="btn-primary"><span>Speichern</span><span>💾</span></button>
+            <button type="button" class="btn-danger" id="pub-gallery-clear"><span>Bilder löschen</span><span>🗑️</span></button>
+          </div>
+          <p class="meta">Hinweis: Inhalte werden lokal im Browser gespeichert (localStorage).</p>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3>Fotocollage</h3>
+        <div id="pub-gallery" class="gallery-grid"></div>
+        <p id="pub-gallery-empty" class="empty" style="display:none;">Noch keine Bilder hochgeladen.</p>
+      </div>
+    </section>
+
+    <!-- Public: Impressum -->
+    <section id="pub-page-impressum" class="page">
+      <h2>Impressum</h2>
+      <p class="helper">Diese Angaben sind öffentlich sichtbar.</p>
+
+      <div class="card">
+        <h3>Verein</h3>
+        <p id="pub-imp-name"></p>
+        <p class="meta" id="pub-imp-address"></p>
+        <p class="meta" id="pub-imp-email"></p>
+      </div>
+
+      <div class="card">
+        <h3>Vorstand & Ämter</h3>
+        <div id="pub-imp-board"></div>
+      </div>
+
+      <div class="card" id="pub-imp-admin" style="display:none;">
+        <span class="pill-info">⭐ Nur Vorstand: Impressum bearbeiten</span>
+        <h3>Impressum bearbeiten</h3>
+        <form id="pub-impressum-form" autocomplete="off">
+          <input class="hp-field" type="text" name="fake_user_imp" autocomplete="username">
+          <input class="hp-field" type="password" name="fake_pass_imp" autocomplete="current-password">
+
+          <input type="text" id="imp-name" placeholder="Vereinsname" required autocomplete="off" />
+          <input type="text" id="imp-address" placeholder="Adresse" required autocomplete="off" />
+          <input type="text" id="imp-email" placeholder="E-Mail" required autocomplete="off" />
+          <div class="section-subtitle">Vorstand & Ämter (eine Zeile pro Amt)</div>
+          <textarea id="imp-board" placeholder="z.B. 1. Vorsitzender: Max Mustermann&#10;2. Vorsitzender: ..." autocomplete="off" spellcheck="false"></textarea>
+          <button type="submit" class="btn-primary"><span>Speichern</span><span>💾</span></button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Tabbar unten (öffentlich) -->
+  <nav class="tabbar" id="public-tabbar">
+    <button class="tab-btn tab-btn-active" data-pubtarget="events" type="button">
+      <span class="icon">📅</span><span>Events</span>
+    </button>
+    <button class="tab-btn" data-pubtarget="about" type="button">
+      <span class="icon">🌿</span><span>Über uns</span>
+    </button>
+    <button class="tab-btn" data-pubtarget="impressum" type="button">
+      <span class="icon">ℹ️</span><span>Impressum</span>
+    </button>
+
+    <!-- NEU: Login / Logout in Tabbar -->
+    <button class="tab-btn" id="public-login-tab-btn" type="button">
+      <span class="icon" id="public-login-icon">🔐</span>
+      <span id="public-login-label">Anmelden</span>
+    </button>
+  </nav>
+</div>
+
+<!-- =======================
+     APP (Mitgliederbereich)
+     ======================= -->
+<div id="app-container">
+  <header>
+    <div class="header-left">
+      <img src="logo.png" class="logo" alt="Vereinslogo">
+      <div>
+        <h1>Wir in Oerrel e.V.</h1>
+        <span>Mitgliederbereich</span>
+      </div>
+    </div>
+
+   <div class="header-right">
+  <button type="button" class="btn-secondary" id="open-public-from-app">
+    <span>🌿</span><span>Öffentlich</span>
+  </button>
+  <button type="button" class="btn-secondary" id="app-logout-btn">
+    <span>🚪</span><span>Abmelden</span>
+  </button>
+</div>
+
   </header>
 
   <main>
@@ -509,18 +437,20 @@
         alle anderen können sie einsehen, teilnehmen und sich – falls aktiviert – als Helfer melden.
       </p>
 
-      <!-- Nur für Vorstand sichtbar -->
       <div class="card" id="event-admin-card">
         <span class="pill-info">⭐ Nur Vorstand: Veranstaltungen verwalten</span>
         <h3>Neues Event erstellen</h3>
-        <form id="event-form">
-          <input type="text" id="event-title" placeholder="Titel (z.B. Sommerfest)" required />
+        <form id="event-form" autocomplete="off">
+          <input class="hp-field" type="text" name="fake_user_event" autocomplete="username">
+          <input class="hp-field" type="password" name="fake_pass_event" autocomplete="current-password">
+
+          <input type="text" id="event-title" placeholder="Titel (z.B. Sommerfest)" required autocomplete="off" />
           <div class="row">
-            <input type="date" id="event-date" required />
-            <input type="time" id="event-time" required />
+            <input type="date" id="event-date" required autocomplete="off" />
+            <input type="time" id="event-time" required autocomplete="off" />
           </div>
-          <input type="text" id="event-location" placeholder="Ort (z.B. Vereinsheim)" required />
-          <textarea id="event-description" placeholder="Beschreibung" required></textarea>
+          <input type="text" id="event-location" placeholder="Ort (z.B. Vereinsheim)" required autocomplete="off" />
+          <textarea id="event-description" placeholder="Beschreibung" required autocomplete="off" spellcheck="false"></textarea>
 
           <label style="display:flex;align-items:center;gap:6px;font-size:0.85rem;color:#374151;margin-top:4px;">
             <input type="checkbox" id="event-need-helpers" />
@@ -528,14 +458,12 @@
           </label>
 
           <div class="section-subtitle">Optionale Umfrage zum Event</div>
-          <input type="text" id="event-poll-question" placeholder="Frage (z.B. Was wollt ihr essen?)" />
-          <input type="text" id="event-poll-option1" placeholder="Option 1 (z.B. Grillen)" />
-          <input type="text" id="event-poll-option2" placeholder="Option 2 (optional)" />
-          <input type="text" id="event-poll-option3" placeholder="Option 3 (optional)" />
+          <input type="text" id="event-poll-question" placeholder="Frage (z.B. Was wollt ihr essen?)" autocomplete="off" />
+          <input type="text" id="event-poll-option1" placeholder="Option 1 (z.B. Grillen)" autocomplete="off" />
+          <input type="text" id="event-poll-option2" placeholder="Option 2 (optional)" autocomplete="off" />
+          <input type="text" id="event-poll-option3" placeholder="Option 3 (optional)" autocomplete="off" />
 
-          <button type="submit" class="btn-primary">
-            <span>Event speichern</span> <span>📅</span>
-          </button>
+          <button type="submit" class="btn-primary"><span>Event speichern</span><span>📅</span></button>
         </form>
       </div>
 
@@ -548,30 +476,27 @@
       <h2>Kleinanzeigen</h2>
       <p class="helper">
         Biete oder suche Dinge rund um den Verein: Ausrüstung, Werkzeug, Unterstützung usw.
-        Dein vollständiger Name aus dem Profil wird bei den Anzeigen angezeigt.
+        Dein vollständiger Name wird bei den Anzeigen angezeigt.
       </p>
 
       <div class="card">
         <h3>Neue Anzeige erstellen</h3>
-        <form id="ad-form">
-          <input type="text" id="ad-title" placeholder="Titel (z.B. Kay Rhodes Motorradsammlung)" required />
+        <form id="ad-form" autocomplete="off">
+          <input class="hp-field" type="text" name="fake_user_ad" autocomplete="username">
+          <input class="hp-field" type="password" name="fake_pass_ad" autocomplete="current-password">
+
+          <input type="text" id="ad-title" placeholder="Titel (z.B. Werkzeug gesucht)" required autocomplete="off" />
           <div class="row">
-            <select id="ad-type">
+            <select id="ad-type" autocomplete="off">
               <option value="Verkauf">Verkauf</option>
               <option value="Zu verschenken">Zu verschenken</option>
               <option value="Suche">Suche</option>
             </select>
-            <input type="number" id="ad-price" min="0" step="0.01" placeholder="Preis in € (0 = gratis)" />
+            <input type="number" id="ad-price" min="0" step="0.01" placeholder="Preis in € (0 = gratis)" autocomplete="off" />
           </div>
-          <textarea id="ad-description" placeholder="Beschreibung" required></textarea>
-          <input type="text" id="ad-contact" placeholder="Kontakt (z.B. E-Mail, Handy)" required />
-          <button type="submit" class="btn-primary">
-            <span>Anzeige speichern</span> <span>🛒</span>
-          </button>
-          <p class="meta">
-            Hinweis: Dein Name aus dem Profil wird automatisch bei der Anzeige angezeigt.
-            Anzeigen sind sofort sichtbar – der Vorstand kann sie bei Bedarf sperren oder wieder freigeben.
-          </p>
+          <textarea id="ad-description" placeholder="Beschreibung" required autocomplete="off" spellcheck="false"></textarea>
+          <input type="text" id="ad-contact" placeholder="Kontakt (z.B. E-Mail, Handy)" required autocomplete="off" />
+          <button type="submit" class="btn-primary"><span>Anzeige speichern</span><span>🛒</span></button>
         </form>
       </div>
 
@@ -584,27 +509,25 @@
       <h2>Infoboard</h2>
       <p class="helper">
         Für spontane Treffen, Kinoabende, Fahrgemeinschaften oder kurze Infos an den Verein.
-        Alle Beiträge werden mit deinem Namen aus dem Profil gekennzeichnet.
+        Alle Beiträge werden mit deinem Namen gekennzeichnet.
       </p>
 
       <div class="card">
         <h3>Neuen Beitrag posten</h3>
-        <form id="post-form">
-          <input type="text" id="post-title" placeholder="Titel (z.B. Kinoabend heute?)" required />
-          <textarea id="post-text" placeholder="Beschreibe kurz, was du planst." required></textarea>
+        <form id="post-form" autocomplete="off">
+          <input class="hp-field" type="text" name="fake_user_post" autocomplete="username">
+          <input class="hp-field" type="password" name="fake_pass_post" autocomplete="current-password">
+
+          <input type="text" id="post-title" placeholder="Titel (z.B. Fahrgemeinschaft?)" required autocomplete="off" />
+          <textarea id="post-text" placeholder="Beschreibe kurz, was du planst." required autocomplete="off" spellcheck="false"></textarea>
 
           <div class="section-subtitle">Optionale Umfrage</div>
-          <input type="text" id="post-poll-question" placeholder="Frage (z.B. Welcher Film?)" />
-          <input type="text" id="post-poll-option1" placeholder="Option 1 (z.B. Action)" />
-          <input type="text" id="post-poll-option2" placeholder="Option 2 (optional)" />
-          <input type="text" id="post-poll-option3" placeholder="Option 3 (optional)" />
+          <input type="text" id="post-poll-question" placeholder="Frage (z.B. Wann?)" autocomplete="off" />
+          <input type="text" id="post-poll-option1" placeholder="Option 1" autocomplete="off" />
+          <input type="text" id="post-poll-option2" placeholder="Option 2 (optional)" autocomplete="off" />
+          <input type="text" id="post-poll-option3" placeholder="Option 3 (optional)" autocomplete="off" />
 
-          <button type="submit" class="btn-primary">
-            <span>Beitrag posten</span> <span>💬</span>
-          </button>
-          <p class="meta">
-            Dein Name aus dem Profil wird automatisch als Verfasser angezeigt.
-          </p>
+          <button type="submit" class="btn-primary"><span>Beitrag posten</span><span>💬</span></button>
         </form>
       </div>
 
@@ -612,108 +535,147 @@
       <p id="post-empty" class="empty" style="display:none;">Noch keine Beiträge.</p>
     </section>
 
-    <!-- Profil / Info -->
+    <!-- Profil -->
     <section id="page-profile" class="page">
       <h2>Profil & App-Info</h2>
-      <p class="helper">
-        Bitte lege ein Profil mit deinem vollständigen Namen an. Der Name wird bei Kleinanzeigen
-        und Infoboard-Beiträgen angezeigt.
-      </p>
+      <p class="helper">Dein Name wird beim Login gesetzt. Du kannst ihn hier ändern (optional).</p>
 
       <div class="card">
         <h3>Dein Profil</h3>
-        <form id="profile-form">
-          <input type="text" id="profile-name" placeholder="Vollständiger Name (z.B. Max Mustermann)" required />
+        <form id="profile-form" autocomplete="off">
+          <input class="hp-field" type="text" name="fake_user_profile" autocomplete="username">
+          <input class="hp-field" type="password" name="fake_pass_profile" autocomplete="current-password">
+
+          <input type="text" id="profile-name" placeholder="Vollständiger Name" required autocomplete="off" />
           <div class="row">
-            <button type="submit" class="btn-primary">
-              <span>Profil speichern</span> <span>✅</span>
-            </button>
-            <button type="button" class="btn-secondary" id="logout-btn">
-              <span>Abmelden</span> <span>🚪</span>
-            </button>
+            <button type="submit" class="btn-primary"><span>Profil speichern</span><span>✅</span></button>
+            <button type="button" class="btn-secondary-light" id="logout-btn"><span>Abmelden</span><span>🚪</span></button>
           </div>
         </form>
-        <p class="meta" id="role-info">
-          Rolle: Mitglied
+        <p class="meta" id="role-info">Rolle: Mitglied</p>
+      </div>
+
+      <div class="card" id="password-admin-card" style="display:none;">
+        <span class="pill-info">⭐ Nur Vorstand: Zugangspasswörter ändern</span>
+        <h3>Passwörter verwalten</h3>
+        <p class="meta">
+          Hinweis: Diese App läuft ohne Server. Passwortänderungen gelten <b>nur auf dem Gerät/Browser</b>,
+          in dem du sie änderst. Für echte gemeinsame Passwörter braucht ihr einen Server/Backend.
         </p>
-        <p class="meta" id="profile-hint" style="color:#b91c1c; display:none;">
-          Bitte speichere zuerst dein Profil, bevor du Kleinanzeigen oder Beiträge erstellst.
-        </p>
+
+        <form id="password-change-form" autocomplete="off">
+          <input class="hp-field" type="text" name="fake_user_pw" autocomplete="username">
+          <input class="hp-field" type="password" name="fake_pass_pw" autocomplete="current-password">
+
+          <div class="section-subtitle">Sicherheit</div>
+          <input type="password" id="admin-current-pass" placeholder="Aktuelles Vorstandspasswort" required autocomplete="new-password" />
+
+          <div class="section-subtitle">Neues Mitgliederpasswort</div>
+          <input type="password" id="new-member-pass" placeholder="Neues Mitgliederpasswort" autocomplete="new-password" />
+
+          <div class="section-subtitle">Neues Vorstandspasswort</div>
+          <input type="password" id="new-admin-pass" placeholder="Neues Vorstandspasswort" autocomplete="new-password" />
+
+          <button type="submit" class="btn-primary"><span>Passwörter speichern</span><span>🔒</span></button>
+        </form>
       </div>
 
       <div class="card">
         <h3>Über diese App</h3>
-        <p>
-          Diese VereinsApp läuft komplett im Browser ohne Server. Alle Daten werden lokal im
-          <code>localStorage</code> gespeichert.
-        </p>
-        <p>
-          Sollten Fragen bestehen, bitte an den Vorstand melden.
-        </p>
+        <p>Diese VereinsApp läuft komplett im Browser ohne Server. Alle Daten werden lokal im <code>localStorage</code> gespeichert.</p>
       </div>
     </section>
 
     <!-- Impressum -->
     <section id="page-impressum" class="page">
       <h2>Impressum</h2>
-      <p class="helper">
-        Die folgenden Angaben sind Platzhalter und können vom Vorstand jederzeit angepasst werden.
-      </p>
+      <p class="helper">Diese Daten sind identisch mit dem öffentlichen Impressum.</p>
 
       <div class="card">
         <h3>Verein</h3>
-        <p>Wir in Oerrel e.V.</p>
-        <p class="meta">Adresse: Musterstraße 1, 29392 Oerrel</p>
-        <p class="meta">E-Mail: info@wir-in-oerrel.de</p>
+        <p id="app-imp-name"></p>
+        <p class="meta" id="app-imp-address"></p>
+        <p class="meta" id="app-imp-email"></p>
       </div>
 
       <div class="card">
         <h3>Vorstand & Ämter</h3>
-        <p class="meta">1. Vorsitzender: Max Mustermann</p>
-        <p class="meta">2. Vorsitzender: Max Mustermann</p>
-        <p class="meta">Schatzmeister: Max Mustermann</p>
-        <p class="meta">Schriftführer: Max Mustermann</p>
-        <p class="meta">Beisitzende: Max Mustermann</p>
+        <div id="app-imp-board"></div>
       </div>
 
-      <div class="card">
-        <h3>Hinweis</h3>
-        <p>
-          Dieses Impressum dient aktuell als Beispiel. Die tatsächlichen Daten des Vereins
-          (Anschrift, verantwortliche Personen, Kontakt) können vom Vorstand ergänzt oder geändert werden.
-        </p>
+      <div class="card" id="app-imp-admin" style="display:none;">
+        <span class="pill-info">⭐ Nur Vorstand: Impressum bearbeiten</span>
+        <h3>Impressum bearbeiten</h3>
+        <form id="app-impressum-form" autocomplete="off">
+          <input class="hp-field" type="text" name="fake_user_appimp" autocomplete="username">
+          <input class="hp-field" type="password" name="fake_pass_appimp" autocomplete="current-password">
+
+          <input type="text" id="app-imp-name-input" placeholder="Vereinsname" required autocomplete="off" />
+          <input type="text" id="app-imp-address-input" placeholder="Adresse" required autocomplete="off" />
+          <input type="text" id="app-imp-email-input" placeholder="E-Mail" required autocomplete="off" />
+          <div class="section-subtitle">Vorstand & Ämter (eine Zeile pro Amt)</div>
+          <textarea id="app-imp-board-input" placeholder="z.B. 1. Vorsitzender: ..." autocomplete="off" spellcheck="false"></textarea>
+          <button type="submit" class="btn-primary"><span>Speichern</span><span>💾</span></button>
+        </form>
       </div>
     </section>
   </main>
 
-  <!-- Tabbar unten -->
-  <nav class="tabbar">
-    <button class="tab-btn tab-btn-active" data-target="events">
-      <span class="icon">📅</span>
-      <span>Events</span>
+  <!-- Tabbar unten (App) -->
+  <nav class="tabbar" id="app-tabbar">
+    <button class="tab-btn tab-btn-active" data-target="events" type="button">
+      <span class="icon">📅</span><span>Events</span>
     </button>
-    <button class="tab-btn" data-target="classifieds">
-      <span class="icon">🛒</span>
-      <span>Kleinanzeigen</span>
+    <button class="tab-btn" data-target="classifieds" type="button">
+      <span class="icon">🛒</span><span>Kleinanzeigen</span>
       <span class="tab-dot" id="classifieds-dot"></span>
     </button>
-    <button class="tab-btn" data-target="infoboard">
-      <span class="icon">💬</span>
-      <span>Infoboard</span>
+    <button class="tab-btn" data-target="infoboard" type="button">
+      <span class="icon">💬</span><span>Infoboard</span>
     </button>
-    <button class="tab-btn" data-target="profile">
-      <span class="icon">👤</span>
-      <span>Profil</span>
+    <button class="tab-btn" data-target="profile" type="button">
+      <span class="icon">👤</span><span>Profil</span>
     </button>
-    <button class="tab-btn" data-target="impressum">
-      <span class="icon">ℹ️</span>
-      <span>Impressum</span>
+    <button class="tab-btn" data-target="impressum" type="button">
+      <span class="icon">ℹ️</span><span>Impressum</span>
     </button>
   </nav>
 </div>
 
+<!-- =======================
+     LOGIN MODAL
+     ======================= -->
+<div id="login-modal" class="modal-backdrop">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <strong>Anmelden</strong>
+      <button class="modal-close" id="login-close" type="button">✕</button>
+    </div>
+    <div class="modal-body">
+      <p class="meta" style="margin-top:0;">Bitte Name + Passwort eingeben.</p>
+
+      <form id="login-form" autocomplete="off">
+        <input class="hp-field" type="text" name="fake_user_login" autocomplete="username">
+        <input class="hp-field" type="password" name="fake_pass_login" autocomplete="current-password">
+
+        <input type="text" id="login-name" placeholder="Vollständiger Name" required
+               autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" />
+        <input type="password" id="login-pass" placeholder="Zugangspasswort" required
+               autocomplete="new-password" autocapitalize="off" autocorrect="off" spellcheck="false" />
+
+        <button type="submit" class="btn-primary"><span>Einloggen</span><span>➡️</span></button>
+
+        <p id="login-error" class="modal-error">Name/Passwort ist falsch. Bitte erneut versuchen.</p>
+        <p class="modal-hint">
+          Hinweis: Ohne Login kannst du die öffentlichen Inhalte ansehen – für den Mitgliederbereich brauchst du Zugangsdaten.
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+
 <script>
-  // ---------- Hilfsfunktionen für localStorage ----------
+  // ---------- Hilfsfunktionen localStorage ----------
   function loadData(key, fallback) {
     try {
       const raw = localStorage.getItem(key);
@@ -724,42 +686,132 @@
       return fallback;
     }
   }
-
   function saveData(key, value) {
     try {
       localStorage.setItem(key, JSON.stringify(value));
     } catch (e) {
       console.error("Konnte Daten nicht speichern:", key, e);
+      alert("Speichern fehlgeschlagen (Browser-Speicher evtl. voll).");
     }
   }
+
+  // ---------- Anti-Autofill "Hardening" ----------
+  function hardenInputsAgainstAutofill() {
+    const els = document.querySelectorAll("input, textarea, select");
+    els.forEach(el => {
+      if (el.form) el.form.setAttribute("autocomplete", "off");
+
+      el.setAttribute("autocomplete", "off");
+      el.setAttribute("autocorrect", "off");
+      el.setAttribute("autocapitalize", "off");
+      el.setAttribute("spellcheck", "false");
+
+      if (!el.getAttribute("name")) {
+        el.setAttribute("name", "field_" + Math.random().toString(36).slice(2));
+      }
+    });
+
+    document.querySelectorAll('input[type="password"]').forEach(pw => {
+      pw.setAttribute("autocomplete", "new-password");
+      if (!pw.getAttribute("name") || pw.getAttribute("name").startsWith("field_")) {
+        pw.setAttribute("name", "pw_" + Math.random().toString(36).slice(2));
+      }
+    });
+  }
+  document.addEventListener("DOMContentLoaded", hardenInputsAgainstAutofill);
+
+  // ---------- Defaults ----------
+  const DEFAULT_IMPRESSUM = {
+    name: "Wir in Oerrel e.V.",
+    address: "Musterstraße 1, 29392 Oerrel",
+    email: "info@wir-in-oerrel.de",
+    boardLines: [
+      "1. Vorsitzender: Max Mustermann",
+      "2. Vorsitzender: Max Mustermann",
+      "Schatzmeister: Max Mustermann",
+      "Schriftführer: Max Mustermann",
+      "Beisitzende: Max Mustermann"
+    ]
+  };
+
+  const DEFAULT_ABOUT = {
+    text: "Wir in Oerrel e.V. engagiert sich für ein lebendiges Miteinander im Dorf – mit Veranstaltungen, Projekten und Aktionen für Jung und Alt.",
+    gallery: []
+  };
+
+  const DEFAULT_ACCESS = {
+    memberPassword: "OERREL2025",
+    adminPassword: "VORSTAND2025"
+  };
+
+  function ensureDefaults() {
+    if (!loadData("vereinsapp_impressum", null)) saveData("vereinsapp_impressum", DEFAULT_IMPRESSUM);
+    if (!loadData("vereinsapp_public_about", null)) saveData("vereinsapp_public_about", DEFAULT_ABOUT);
+    if (!loadData("vereinsapp_access", null)) saveData("vereinsapp_access", DEFAULT_ACCESS);
+  }
+
+  function getAccessConfig() {
+    return loadData("vereinsapp_access", DEFAULT_ACCESS);
+  }
+
+  // ---------- Public pages ----------
+  const publicPages = {
+    events: document.getElementById("pub-page-events"),
+    about: document.getElementById("pub-page-about"),
+    impressum: document.getElementById("pub-page-impressum"),
+  };
+
+  function setActivePublicPage(key) {
+    Object.values(publicPages).forEach((p) => p.classList.remove("page-active"));
+    publicPages[key].classList.add("page-active");
+
+    document.querySelectorAll('#public-tabbar .tab-btn[data-pubtarget]').forEach((b) => b.classList.remove("tab-btn-active"));
+    const btn = document.querySelector('#public-tabbar .tab-btn[data-pubtarget="' + key + '"]');
+    if (btn) btn.classList.add("tab-btn-active");
+  }
+
+  document.querySelectorAll('#public-tabbar .tab-btn[data-pubtarget]').forEach((btn) => {
+    btn.addEventListener("click", () => setActivePublicPage(btn.dataset.pubtarget));
+  });
+
+  document.getElementById("hero-events-btn").addEventListener("click", () => setActivePublicPage("events"));
+  document.getElementById("hero-about-btn").addEventListener("click", () => setActivePublicPage("about"));
+
+  // ---------- App pages ----------
+  const pages = {
+    events: document.getElementById("page-events"),
+    classifieds: document.getElementById("page-classifieds"),
+    infoboard: document.getElementById("page-infoboard"),
+    profile: document.getElementById("page-profile"),
+    impressum: document.getElementById("page-impressum"),
+  };
 
   function setActivePage(pageKey) {
     Object.values(pages).forEach((p) => p.classList.remove("page-active"));
     pages[pageKey].classList.add("page-active");
 
-    document
-      .querySelectorAll(".tab-btn")
-      .forEach((b) => b.classList.remove("tab-btn-active"));
-    const btn = document.querySelector('.tab-btn[data-target="' + pageKey + '"]');
+    document.querySelectorAll('#app-tabbar .tab-btn[data-target]').forEach((b) => b.classList.remove("tab-btn-active"));
+    const btn = document.querySelector('#app-tabbar .tab-btn[data-target="' + pageKey + '"]');
     if (btn) btn.classList.add("tab-btn-active");
 
-    // Wenn Kleinanzeigen geöffnet werden, "neu"-Punkt zurücksetzen
     if (pageKey === "classifieds") {
       saveData("vereinsapp_classifieds_last_opened", Date.now());
       updateClassifiedsDot();
     }
   }
 
+  document.querySelectorAll('#app-tabbar .tab-btn[data-target]').forEach((btn) => {
+    btn.addEventListener("click", () => setActivePage(btn.dataset.target));
+  });
+
+  // ---------- Profile helpers ----------
   function getProfileName() {
     const profile = loadData("vereinsapp_profile", { name: "" });
     return (profile.name || "").trim();
   }
 
-  // ---------- ICS / Kalender ----------
-  function pad(n) {
-    return n < 10 ? "0" + n : "" + n;
-  }
-
+  // ---------- ICS ----------
+  function pad(n){ return n < 10 ? "0" + n : "" + n; }
   function getNowUTCForICS() {
     const d = new Date();
     return (
@@ -773,7 +825,6 @@
       "Z"
     );
   }
-
   function escapeICS(text) {
     if (!text) return "";
     return String(text)
@@ -782,7 +833,6 @@
       .replace(/;/g, "\\;")
       .replace(/\r?\n/g, "\\n");
   }
-
   function downloadICSForEvent(ev) {
     if (!ev || !ev.date) return;
     const datePart = ev.date.replace(/-/g, "");
@@ -820,45 +870,281 @@
     URL.revokeObjectURL(url);
   }
 
-  // ---------- Tabs / Seiten ----------
-  const pages = {
-    events: document.getElementById("page-events"),
-    classifieds: document.getElementById("page-classifieds"),
-    infoboard: document.getElementById("page-infoboard"),
-    profile: document.getElementById("page-profile"),
-    impressum: document.getElementById("page-impressum"),
-  };
+  // ---------- Shared: Impressum ----------
+  const DEFAULT_IMPRESSUM_FALLBACK = DEFAULT_IMPRESSUM;
+  function getImpressum() { return loadData("vereinsapp_impressum", DEFAULT_IMPRESSUM_FALLBACK); }
 
-  const classifiedsDot = document.getElementById("classifieds-dot");
-
-  document.querySelectorAll(".tab-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const target = btn.dataset.target;
-      setActivePage(target);
+  function renderBoardLines(containerEl, boardLines) {
+    containerEl.innerHTML = "";
+    const lines = Array.isArray(boardLines) ? boardLines : [];
+    if (!lines.length) {
+      const p = document.createElement("p");
+      p.className = "empty";
+      p.textContent = "Noch keine Angaben.";
+      containerEl.appendChild(p);
+      return;
+    }
+    lines.forEach(line => {
+      const p = document.createElement("p");
+      p.className = "meta";
+      p.textContent = line;
+      containerEl.appendChild(p);
     });
+  }
+
+  function renderImpressumEverywhere() {
+    const imp = getImpressum();
+
+    // Public
+    document.getElementById("pub-imp-name").textContent = imp.name || "";
+    document.getElementById("pub-imp-address").textContent = "Adresse: " + (imp.address || "");
+    document.getElementById("pub-imp-email").textContent = "E-Mail: " + (imp.email || "");
+    renderBoardLines(document.getElementById("pub-imp-board"), imp.boardLines);
+
+    document.getElementById("imp-name").value = imp.name || "";
+    document.getElementById("imp-address").value = imp.address || "";
+    document.getElementById("imp-email").value = imp.email || "";
+    document.getElementById("imp-board").value = (imp.boardLines || []).join("\n");
+
+    // App
+    document.getElementById("app-imp-name").textContent = imp.name || "";
+    document.getElementById("app-imp-address").textContent = "Adresse: " + (imp.address || "");
+    document.getElementById("app-imp-email").textContent = "E-Mail: " + (imp.email || "");
+    renderBoardLines(document.getElementById("app-imp-board"), imp.boardLines);
+
+    document.getElementById("app-imp-name-input").value = imp.name || "";
+    document.getElementById("app-imp-address-input").value = imp.address || "";
+    document.getElementById("app-imp-email-input").value = imp.email || "";
+    document.getElementById("app-imp-board-input").value = (imp.boardLines || []).join("\n");
+  }
+
+  // ---------- Shared: About + Gallery ----------
+  function getAbout() { return loadData("vereinsapp_public_about", DEFAULT_ABOUT); }
+
+  function renderAboutPublic() {
+    const about = getAbout();
+    document.getElementById("pub-about-text").textContent = about.text || "";
+    document.getElementById("pub-about-input").value = about.text || "";
+
+    const galleryEl = document.getElementById("pub-gallery");
+    const emptyEl = document.getElementById("pub-gallery-empty");
+    galleryEl.innerHTML = "";
+
+    const imgs = Array.isArray(about.gallery) ? about.gallery : [];
+    if (!imgs.length) {
+      emptyEl.style.display = "block";
+      return;
+    }
+    emptyEl.style.display = "none";
+
+    imgs.forEach((src, idx) => {
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = "Bild " + (idx + 1);
+      img.title = "Bild " + (idx + 1);
+      galleryEl.appendChild(img);
+    });
+  }
+
+  function fileToDataURL(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // ---------- Login / Role ----------
+  let currentRole = "member"; // member | admin
+  function setRole(role) {
+    currentRole = role === "admin" ? "admin" : "member";
+    saveData("vereinsapp_role", currentRole);
+  }
+  function isLoggedIn() { return loadData("vereinsapp_access_granted", false) === true; }
+
+  // ---------- Public admin visibility ----------
+  function updatePublicAdminUI() {
+    const show = isLoggedIn() && loadData("vereinsapp_role", "member") === "admin";
+    document.getElementById("pub-imp-admin").style.display = show ? "block" : "none";
+    document.getElementById("pub-about-admin").style.display = show ? "block" : "none";
+  }
+
+  // ---------- Public Tab Login Button ----------
+  const pubLoginTabBtn = document.getElementById("public-login-tab-btn");
+  const pubLoginIcon = document.getElementById("public-login-icon");
+  const pubLoginLabel = document.getElementById("public-login-label");
+
+  function updatePublicLoginTab() {
+    const logged = isLoggedIn();
+    const role = loadData("vereinsapp_role", "member");
+    if (logged) {
+      pubLoginIcon.textContent = "🚪";
+      pubLoginLabel.textContent = role === "admin" ? "Vorstand" : "Logout";
+    } else {
+      pubLoginIcon.textContent = "🔐";
+      pubLoginLabel.textContent = "Anmelden";
+    }
+  }
+
+  // Public: About speichern (nur Vorstand)
+  document.getElementById("pub-about-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!isLoggedIn() || loadData("vereinsapp_role", "member") !== "admin") {
+      alert("Nur der Vorstand kann das bearbeiten.");
+      return;
+    }
+
+    const aboutText = document.getElementById("pub-about-input").value.trim();
+    const input = document.getElementById("pub-gallery-input");
+    const files = input.files ? Array.from(input.files) : [];
+
+    const current = getAbout();
+    let gallery = Array.isArray(current.gallery) ? current.gallery : [];
+
+    if (files.length) {
+      const dataUrls = [];
+      for (const f of files) dataUrls.push(await fileToDataURL(f));
+      gallery = gallery.concat(dataUrls);
+    }
+
+    saveData("vereinsapp_public_about", { text: aboutText, gallery });
+    document.getElementById("pub-gallery-input").value = "";
+    renderAboutPublic();
+    alert("Über-uns Inhalte gespeichert.");
   });
 
-  // ---------- Events ----------
-  let events = loadData("vereinsapp_events", []);
+  document.getElementById("pub-gallery-clear").addEventListener("click", () => {
+    if (!isLoggedIn() || loadData("vereinsapp_role", "member") !== "admin") {
+      alert("Nur der Vorstand kann das bearbeiten.");
+      return;
+    }
+    if (!confirm("Alle Bilder der Fotocollage wirklich löschen?")) return;
+    const about = getAbout();
+    about.gallery = [];
+    saveData("vereinsapp_public_about", about);
+    renderAboutPublic();
+  });
 
+  // Public: Impressum speichern (nur Vorstand)
+  document.getElementById("pub-impressum-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (!isLoggedIn() || loadData("vereinsapp_role", "member") !== "admin") {
+      alert("Nur der Vorstand kann das bearbeiten.");
+      return;
+    }
+
+    const name = document.getElementById("imp-name").value.trim();
+    const address = document.getElementById("imp-address").value.trim();
+    const email = document.getElementById("imp-email").value.trim();
+    const boardRaw = document.getElementById("imp-board").value || "";
+    const boardLines = boardRaw.split("\n").map(s => s.trim()).filter(Boolean);
+
+    saveData("vereinsapp_impressum", { name, address, email, boardLines });
+    renderImpressumEverywhere();
+    alert("Impressum gespeichert.");
+  });
+
+  // ---------- Public Events ----------
+  const pubEventListEl = document.getElementById("pub-event-list");
+  const pubEventEmptyEl = document.getElementById("pub-event-empty");
+  function renderPublicEvents() {
+    pubEventListEl.innerHTML = "";
+    const list = loadData("vereinsapp_events", []);
+
+    if (!list.length) {
+      pubEventEmptyEl.style.display = "block";
+      return;
+    }
+    pubEventEmptyEl.style.display = "none";
+
+    const sorted = [...list].sort((a, b) => {
+      if (a.date === b.date) return (a.time || "").localeCompare(b.time || "");
+      return a.date.localeCompare(b.date);
+    });
+
+    sorted.forEach((ev) => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      const title = document.createElement("h3");
+      title.textContent = ev.title;
+
+      const meta = document.createElement("p");
+      meta.className = "meta";
+      meta.textContent = `📅 ${ev.date} · ⏰ ${ev.time || "–"} · 📍 ${ev.location}`;
+
+      const desc = document.createElement("p");
+      desc.textContent = ev.description;
+
+      const btnCalendar = document.createElement("button");
+      btnCalendar.type = "button";
+      btnCalendar.className = "btn-primary";
+      btnCalendar.innerHTML = "<span>In Kalender speichern</span> <span>📲</span>";
+      btnCalendar.addEventListener("click", () => downloadICSForEvent(ev));
+
+      card.appendChild(title);
+      card.appendChild(meta);
+      card.appendChild(desc);
+      card.appendChild(btnCalendar);
+
+      pubEventListEl.appendChild(card);
+    });
+  }
+
+  // ---------- App: Events / Ads / Posts ----------
+  let events = loadData("vereinsapp_events", []);
+  let ads = loadData("vereinsapp_ads", []);
+  let posts = loadData("vereinsapp_posts", []);
+
+  // ---------- App: DOM Elemente ----------
   const eventListEl = document.getElementById("event-list");
   const eventEmptyEl = document.getElementById("event-empty");
   const eventForm = document.getElementById("event-form");
   const eventAdminCard = document.getElementById("event-admin-card");
 
-  function renderEvents(currentRole) {
+  const adListEl = document.getElementById("ad-list");
+  const adEmptyEl = document.getElementById("ad-empty");
+  const adForm = document.getElementById("ad-form");
+
+  const postListEl = document.getElementById("post-list");
+  const postEmptyEl = document.getElementById("post-empty");
+  const postForm = document.getElementById("post-form");
+
+  const classifiedsDot = document.getElementById("classifieds-dot");
+
+  // ---------- Helfer: Formatzeit ----------
+  function formatTime(ts) {
+    const d = new Date(ts);
+    return (
+      d.toLocaleDateString("de-DE", { day:"2-digit", month:"2-digit", year:"2-digit" }) +
+      " · " +
+      d.toLocaleTimeString("de-DE", { hour:"2-digit", minute:"2-digit" })
+    );
+  }
+
+  // ---------- Kleinanzeigen Dot ----------
+  function updateClassifiedsDot() {
+    if (!classifiedsDot) return;
+    const lastOpened = loadData("vereinsapp_classifieds_last_opened", 0);
+    const hasNew = (ads || []).some(ad => (ad.createdAt || 0) > lastOpened);
+    classifiedsDot.style.display = hasNew ? "inline-block" : "none";
+  }
+
+  // ---------- Events Render ----------
+  function renderEvents(role) {
+    if (!eventListEl) return;
     eventListEl.innerHTML = "";
 
-    if (!events.length) {
-      eventEmptyEl.style.display = "block";
+    if (!events || !events.length) {
+      if (eventEmptyEl) eventEmptyEl.style.display = "block";
       return;
-    } else {
-      eventEmptyEl.style.display = "none";
     }
+    if (eventEmptyEl) eventEmptyEl.style.display = "none";
 
     const sorted = [...events].sort((a, b) => {
       if (a.date === b.date) return (a.time || "").localeCompare(b.time || "");
-      return a.date.localeCompare(b.date);
+      return (a.date || "").localeCompare(b.date || "");
     });
 
     const profileName = getProfileName();
@@ -866,12 +1152,10 @@
     sorted.forEach((ev) => {
       ev.attendance = ev.attendance || {};
       ev.helpers = Array.isArray(ev.helpers) ? ev.helpers : [];
-      const attendees = ev.attendance;
-
-      const needHelpers = ev.needHelpers === undefined ? false : !!ev.needHelpers;
+      const needHelpers = !!ev.needHelpers;
 
       let yesCount = 0, maybeCount = 0, noCount = 0;
-      Object.values(attendees).forEach((s) => {
+      Object.values(ev.attendance).forEach((s) => {
         if (s === "yes") yesCount++;
         else if (s === "maybe") maybeCount++;
         else if (s === "no") noCount++;
@@ -894,9 +1178,11 @@
       const desc = document.createElement("p");
       desc.textContent = ev.description;
 
-      // Teilnahme-Status Anzeige
       const inline = document.createElement("div");
-      inline.className = "inline-badges";
+      inline.style.display = "flex";
+      inline.style.flexWrap = "wrap";
+      inline.style.gap = "6px";
+      inline.style.margin = "6px 0";
 
       const bYes = document.createElement("span");
       bYes.className = "badge";
@@ -914,70 +1200,52 @@
       inline.appendChild(bMaybe);
       inline.appendChild(bNo);
 
-      // Buttons Teilnahme
       const btnRowAttend = document.createElement("div");
       btnRowAttend.className = "row";
 
       const btnYes = document.createElement("button");
       btnYes.type = "button";
-      btnYes.className = "btn-secondary";
+      btnYes.className = "btn-secondary-light";
       btnYes.textContent = "Ich komme";
 
       const btnMaybe = document.createElement("button");
       btnMaybe.type = "button";
-      btnMaybe.className = "btn-secondary";
+      btnMaybe.className = "btn-secondary-light";
       btnMaybe.textContent = "Vielleicht";
 
       const btnNo = document.createElement("button");
       btnNo.type = "button";
-      btnNo.className = "btn-secondary";
+      btnNo.className = "btn-secondary-light";
       btnNo.textContent = "Komme nicht";
 
-      function ensureProfileForAction() {
-        if (!profileName) {
-          alert("Bitte lege zuerst dein Profil mit vollständigem Namen an.");
-          setActivePage("profile");
-          const profileHint = document.getElementById("profile-hint");
-          if (profileHint) profileHint.style.display = "block";
-          return false;
-        }
-        return true;
-      }
-
       btnYes.addEventListener("click", () => {
-        if (!ensureProfileForAction()) return;
         ev.attendance[profileName] = "yes";
         saveData("vereinsapp_events", events);
-        renderEvents(currentRole);
+        renderEvents(role);
       });
-
       btnMaybe.addEventListener("click", () => {
-        if (!ensureProfileForAction()) return;
         ev.attendance[profileName] = "maybe";
         saveData("vereinsapp_events", events);
-        renderEvents(currentRole);
+        renderEvents(role);
       });
-
       btnNo.addEventListener("click", () => {
-        if (!ensureProfileForAction()) return;
         ev.attendance[profileName] = "no";
         saveData("vereinsapp_events", events);
-        renderEvents(currentRole);
+        renderEvents(role);
       });
 
       btnRowAttend.appendChild(btnYes);
       btnRowAttend.appendChild(btnMaybe);
       btnRowAttend.appendChild(btnNo);
 
-      // Kalender-Button
-      const btnCalendar = document.createElement("button");
-      btnCalendar.type = "button";
-      btnCalendar.className = "btn-secondary";
-      btnCalendar.innerHTML = "<span>In Kalender speichern</span> <span>📲</span>";
-      btnCalendar.addEventListener("click", () => downloadICSForEvent(ev));
-
       const actionRow = document.createElement("div");
       actionRow.className = "row";
+
+      const btnCalendar = document.createElement("button");
+      btnCalendar.type = "button";
+      btnCalendar.className = "btn-secondary-light";
+      btnCalendar.innerHTML = "<span>In Kalender speichern</span> <span>📲</span>";
+      btnCalendar.addEventListener("click", () => downloadICSForEvent(ev));
       actionRow.appendChild(btnCalendar);
 
       card.appendChild(title);
@@ -986,11 +1254,11 @@
       card.appendChild(inline);
       card.appendChild(btnRowAttend);
 
-      // Helferbereich nur, wenn Helfer gesucht sind
       if (needHelpers) {
         const helperP = document.createElement("p");
         helperP.className = "meta";
         helperP.textContent = `Helfer:innen: ${helperCount}`;
+
         if (userIsHelper) {
           const span = document.createElement("span");
           span.style.color = "#16a34a";
@@ -1004,19 +1272,15 @@
 
         const btnHelp = document.createElement("button");
         btnHelp.type = "button";
-        btnHelp.className = "btn-secondary";
+        btnHelp.className = "btn-secondary-light";
         btnHelp.textContent = userIsHelper ? "Nicht mehr helfen" : "Ich helfe mit";
 
         btnHelp.addEventListener("click", () => {
-          if (!ensureProfileForAction()) return;
           const idx = ev.helpers.indexOf(profileName);
-          if (idx === -1) {
-            ev.helpers.push(profileName);
-          } else {
-            ev.helpers.splice(idx, 1);
-          }
+          if (idx === -1) ev.helpers.push(profileName);
+          else ev.helpers.splice(idx, 1);
           saveData("vereinsapp_events", events);
-          renderEvents(currentRole);
+          renderEvents(role);
         });
 
         helperButtons.appendChild(btnHelp);
@@ -1024,7 +1288,7 @@
         card.appendChild(helperP);
         card.appendChild(helperButtons);
 
-        if (currentRole === "admin" && helperNames.length) {
+        if (role === "admin" && helperNames.length) {
           const helpersList = document.createElement("p");
           helpersList.className = "meta";
           helpersList.textContent = "Helfer-Liste (nur Vorstand): " + helperNames.join(", ");
@@ -1032,9 +1296,6 @@
         }
       }
 
-      card.appendChild(actionRow);
-
-      // Poll für Event
       if (ev.poll && ev.poll.question && Array.isArray(ev.poll.options) && ev.poll.options.length) {
         const pollWrap = document.createElement("div");
         pollWrap.className = "meta";
@@ -1045,40 +1306,37 @@
         pollWrap.appendChild(q);
 
         const pollRow = document.createElement("div");
-        pollRow.className = "poll-options";
+        pollRow.style.display = "flex";
+        pollRow.style.flexWrap = "wrap";
+        pollRow.style.gap = "6px";
+        pollRow.style.marginTop = "4px";
 
         const voteKey = "vereinsapp_eventvote_" + ev.id;
         const selectedIndex = loadData(voteKey, null);
 
         ev.poll.options.forEach((opt, idx) => {
           if (typeof opt.votes !== "number") opt.votes = 0;
+
           const btn = document.createElement("button");
           btn.type = "button";
-          btn.className = "poll-btn";
+          btn.className = "btn-secondary-light";
+          btn.textContent = `${opt.text} (${opt.votes})`;
+
           if (selectedIndex === idx) {
-            btn.classList.add("poll-btn-active");
+            btn.style.borderColor = "#16a34a";
+            btn.style.background = "#ecfdf3";
+            btn.style.color = "#14532d";
           }
-          const labelSpan = document.createElement("span");
-          labelSpan.textContent = opt.text;
-
-          const countSpan = document.createElement("span");
-          countSpan.className = "poll-count";
-          countSpan.textContent = `(${opt.votes})`;
-
-          btn.appendChild(labelSpan);
-          btn.appendChild(countSpan);
 
           btn.addEventListener("click", () => {
             let oldIndex = loadData(voteKey, null);
             if (typeof oldIndex === "number" && ev.poll.options[oldIndex]) {
-              if (ev.poll.options[oldIndex].votes > 0) {
-                ev.poll.options[oldIndex].votes -= 1;
-              }
+              if (ev.poll.options[oldIndex].votes > 0) ev.poll.options[oldIndex].votes -= 1;
             }
             ev.poll.options[idx].votes += 1;
             saveData("vereinsapp_events", events);
             saveData(voteKey, idx);
-            renderEvents(currentRole);
+            renderEvents(role);
           });
 
           pollRow.appendChild(btn);
@@ -1088,8 +1346,9 @@
         card.appendChild(pollWrap);
       }
 
-      // Löschen-Button nur Vorstand
-      if (currentRole === "admin") {
+      card.appendChild(actionRow);
+
+      if (role === "admin") {
         const btnDelete = document.createElement("button");
         btnDelete.className = "btn-danger";
         btnDelete.innerHTML = "<span>Event löschen</span> <span>🗑️</span>";
@@ -1097,7 +1356,8 @@
           if (confirm("Dieses Event wirklich löschen?")) {
             events = events.filter((e) => e.id !== ev.id);
             saveData("vereinsapp_events", events);
-            renderEvents(currentRole);
+            renderEvents(role);
+            renderPublicEvents();
           }
         });
         card.appendChild(btnDelete);
@@ -1107,17 +1367,17 @@
     });
   }
 
+  // Events: Submit (nur Vorstand)
   if (eventForm) {
     eventForm.addEventListener("submit", (e) => {
       e.preventDefault();
+      if (currentRole !== "admin") return;
+
       const title = document.getElementById("event-title").value.trim();
       const date = document.getElementById("event-date").value;
       const time = document.getElementById("event-time").value;
       const location = document.getElementById("event-location").value.trim();
-      const description = document
-        .getElementById("event-description")
-        .value.trim();
-
+      const description = document.getElementById("event-description").value.trim();
       const needHelpers = document.getElementById("event-need-helpers").checked;
 
       const pollQuestion = document.getElementById("event-poll-question").value.trim();
@@ -1129,14 +1389,10 @@
 
       const newEvent = {
         id: Date.now().toString(),
-        title,
-        date,
-        time,
-        location,
-        description,
+        title, date, time, location, description,
         attendance: {},
         helpers: [],
-        needHelpers: needHelpers
+        needHelpers
       };
 
       if (pollQuestion && (opt1 || opt2 || opt3)) {
@@ -1144,50 +1400,35 @@
         if (opt1) options.push({ text: opt1, votes: 0 });
         if (opt2) options.push({ text: opt2, votes: 0 });
         if (opt3) options.push({ text: opt3, votes: 0 });
-        if (options.length) {
-          newEvent.poll = {
-            question: pollQuestion,
-            options
-          };
-        }
+        if (options.length) newEvent.poll = { question: pollQuestion, options };
       }
 
       events.push(newEvent);
       saveData("vereinsapp_events", events);
       eventForm.reset();
       renderEvents(currentRole);
+      renderPublicEvents();
     });
   }
 
-  // ---------- Kleinanzeigen ----------
-  let ads = loadData("vereinsapp_ads", []);
-
-  const adListEl = document.getElementById("ad-list");
-  const adEmptyEl = document.getElementById("ad-empty");
-  const adForm = document.getElementById("ad-form");
-
-  function updateClassifiedsDot() {
-    if (!classifiedsDot) return;
-    const lastOpened = loadData("vereinsapp_classifieds_last_opened", 0);
-    const hasNew = ads.some(ad => ad.createdAt > lastOpened);
-    classifiedsDot.style.display = hasNew ? "inline-block" : "none";
-  }
-
-  function renderAds(currentRole) {
+  // ---------- Ads Render ----------
+  function renderAds(role) {
+    if (!adListEl) return;
     adListEl.innerHTML = "";
 
-    let list = [...ads];
+    const list = [...(ads || [])];
     if (!list.length) {
-      adEmptyEl.style.display = "block";
-      classifiedsDot.style.display = "none";
+      if (adEmptyEl) adEmptyEl.style.display = "block";
+      if (classifiedsDot) classifiedsDot.style.display = "none";
       return;
-    } else {
-      adEmptyEl.style.display = "none";
     }
+    if (adEmptyEl) adEmptyEl.style.display = "none";
 
-    const sorted = list.sort((a, b) => b.createdAt - a.createdAt);
+    const sorted = list.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
 
     sorted.forEach((ad) => {
+      if (role !== "admin" && ad.approved === false) return;
+
       const card = document.createElement("div");
       card.className = "card";
 
@@ -1197,9 +1438,7 @@
       const badge = document.createElement("div");
       badge.className = "badge";
       const priceText =
-        ad.type === "Zu verschenken" || ad.price === 0
-          ? "gratis"
-          : `${ad.price.toFixed(2)} €`;
+        ad.type === "Zu verschenken" || ad.price === 0 ? "gratis" : `${Number(ad.price).toFixed(2)} €`;
       badge.textContent = `${ad.type} · ${priceText}`;
 
       const desc = document.createElement("p");
@@ -1207,22 +1446,17 @@
 
       const meta = document.createElement("p");
       meta.className = "meta";
-      const authorName = ad.authorName || "Unbekannt";
-      meta.textContent = `Von: ${authorName} · Kontakt: ${ad.contact}`;
+      meta.textContent = `Von: ${ad.authorName || "Unbekannt"} · Kontakt: ${ad.contact}`;
 
       card.appendChild(title);
       card.appendChild(badge);
       card.appendChild(desc);
       card.appendChild(meta);
 
-      const statusLine = document.createElement("p");
-      statusLine.className = "meta";
-
-      if (currentRole === "admin") {
-        const statusText = ad.approved === false
-          ? "Status: Gesperrt"
-          : "Status: Sichtbar";
-        statusLine.textContent = statusText;
+      if (role === "admin") {
+        const statusLine = document.createElement("p");
+        statusLine.className = "meta";
+        statusLine.textContent = ad.approved === false ? "Status: Gesperrt" : "Status: Sichtbar";
 
         if (ad.reportCount && ad.reportCount > 0) {
           const span = document.createElement("span");
@@ -1237,12 +1471,12 @@
 
         const btnToggle = document.createElement("button");
         btnToggle.type = "button";
-        btnToggle.className = "btn-secondary";
+        btnToggle.className = "btn-secondary-light";
         btnToggle.textContent = ad.approved === false ? "Freigeben" : "Sperren";
         btnToggle.addEventListener("click", () => {
           ad.approved = ad.approved === false ? true : false;
           saveData("vereinsapp_ads", ads);
-          renderAds(currentRole);
+          renderAds(role);
         });
 
         const btnDelete = document.createElement("button");
@@ -1253,7 +1487,8 @@
           if (confirm("Diese Anzeige wirklich löschen?")) {
             ads = ads.filter((a) => a.id !== ad.id);
             saveData("vereinsapp_ads", ads);
-            renderAds(currentRole);
+            renderAds(role);
+            updateClassifiedsDot();
           }
         });
 
@@ -1263,10 +1498,6 @@
         card.appendChild(statusLine);
         card.appendChild(modRow);
       } else {
-        if (ad.approved === false) {
-          // gesperrt -> normale Mitglieder sehen sie nicht
-          return;
-        }
         const actionRow = document.createElement("div");
         actionRow.className = "row";
 
@@ -1274,7 +1505,6 @@
         btnReport.type = "button";
         btnReport.className = "btn-link";
         btnReport.textContent = "Melden (Missbrauch)";
-
         btnReport.addEventListener("click", () => {
           ad.reported = true;
           ad.reportCount = (ad.reportCount || 0) + 1;
@@ -1292,18 +1522,13 @@
     updateClassifiedsDot();
   }
 
+  // Ads: Submit
   if (adForm) {
     adForm.addEventListener("submit", (e) => {
       e.preventDefault();
+      if (!isLoggedIn()) { alert("Bitte zuerst anmelden."); openLoginModal(); return; }
 
       const profileName = getProfileName();
-      if (!profileName) {
-        alert("Bitte lege zuerst dein Profil mit vollständigem Namen an.");
-        setActivePage("profile");
-        const profileHint = document.getElementById("profile-hint");
-        if (profileHint) profileHint.style.display = "block";
-        return;
-      }
 
       const title = document.getElementById("ad-title").value.trim();
       const type = document.getElementById("ad-type").value;
@@ -1318,14 +1543,10 @@
 
       const newAd = {
         id: Date.now().toString(),
-        title,
-        type,
-        price,
-        description,
-        contact,
+        title, type, price, description, contact,
         authorName: profileName,
         createdAt: Date.now(),
-        approved: true,      // ✅ immer direkt sichtbar
+        approved: true,
         reported: false,
         reportCount: 0
       };
@@ -1334,44 +1555,23 @@
       saveData("vereinsapp_ads", ads);
       adForm.reset();
       renderAds(currentRole);
+      updateClassifiedsDot();
     });
   }
 
-  // ---------- Infoboard ----------
-  let posts = loadData("vereinsapp_posts", []);
-
-  const postListEl = document.getElementById("post-list");
-  const postEmptyEl = document.getElementById("post-empty");
-  const postForm = document.getElementById("post-form");
-
-  function formatTime(ts) {
-    const d = new Date(ts);
-    return (
-      d.toLocaleDateString("de-DE", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "2-digit",
-      }) +
-      " · " +
-      d.toLocaleTimeString("de-DE", {
-        hour: "2-digit",
-        minute: "2-digit",
-      })
-    );
-  }
-
-  function renderPosts(currentRole) {
+  // ---------- Posts Render ----------
+  function renderPosts(role) {
+    if (!postListEl) return;
     postListEl.innerHTML = "";
 
-    let list = [...posts];
+    const list = [...(posts || [])];
     if (!list.length) {
-      postEmptyEl.style.display = "block";
+      if (postEmptyEl) postEmptyEl.style.display = "block";
       return;
-    } else {
-      postEmptyEl.style.display = "none";
     }
+    if (postEmptyEl) postEmptyEl.style.display = "none";
 
-    const sorted = list.sort((a, b) => b.createdAt - a.createdAt);
+    const sorted = list.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
 
     sorted.forEach((post) => {
       const card = document.createElement("div");
@@ -1382,8 +1582,7 @@
 
       const meta = document.createElement("p");
       meta.className = "meta";
-      const author = post.authorName ? post.authorName : "Anonym";
-      meta.textContent = `${author} · ${formatTime(post.createdAt)}`;
+      meta.textContent = `${post.authorName || "Anonym"} · ${formatTime(post.createdAt)}`;
 
       const text = document.createElement("p");
       text.textContent = post.text;
@@ -1402,7 +1601,10 @@
         pollWrap.appendChild(q);
 
         const pollRow = document.createElement("div");
-        pollRow.className = "poll-options";
+        pollRow.style.display = "flex";
+        pollRow.style.flexWrap = "wrap";
+        pollRow.style.gap = "6px";
+        pollRow.style.marginTop = "4px";
 
         const voteKey = "vereinsapp_postvote_" + post.id;
         const selectedIndex = loadData(voteKey, null);
@@ -1412,32 +1614,24 @@
 
           const btn = document.createElement("button");
           btn.type = "button";
-          btn.className = "poll-btn";
+          btn.className = "btn-secondary-light";
+          btn.textContent = `${opt.text} (${opt.votes})`;
+
           if (selectedIndex === idx) {
-            btn.classList.add("poll-btn-active");
+            btn.style.borderColor = "#16a34a";
+            btn.style.background = "#ecfdf3";
+            btn.style.color = "#14532d";
           }
-
-          const labelSpan = document.createElement("span");
-          labelSpan.textContent = opt.text;
-
-          const countSpan = document.createElement("span");
-          countSpan.className = "poll-count";
-          countSpan.textContent = `(${opt.votes})`;
-
-          btn.appendChild(labelSpan);
-          btn.appendChild(countSpan);
 
           btn.addEventListener("click", () => {
             let oldIndex = loadData(voteKey, null);
             if (typeof oldIndex === "number" && post.poll.options[oldIndex]) {
-              if (post.poll.options[oldIndex].votes > 0) {
-                post.poll.options[oldIndex].votes -= 1;
-              }
+              if (post.poll.options[oldIndex].votes > 0) post.poll.options[oldIndex].votes -= 1;
             }
             post.poll.options[idx].votes += 1;
             saveData("vereinsapp_posts", posts);
             saveData(voteKey, idx);
-            renderPosts(currentRole);
+            renderPosts(role);
           });
 
           pollRow.appendChild(btn);
@@ -1447,7 +1641,7 @@
         card.appendChild(pollWrap);
       }
 
-      if (currentRole === "admin") {
+      if (role === "admin") {
         const statusLine = document.createElement("p");
         statusLine.className = "meta";
         statusLine.textContent = "Status: Sichtbar";
@@ -1471,12 +1665,11 @@
           if (confirm("Diesen Beitrag wirklich löschen?")) {
             posts = posts.filter((p) => p.id !== post.id);
             saveData("vereinsapp_posts", posts);
-            renderPosts(currentRole);
+            renderPosts(role);
           }
         });
 
         modRow.appendChild(btnDelete);
-
         card.appendChild(statusLine);
         card.appendChild(modRow);
       } else {
@@ -1487,7 +1680,6 @@
         btnReport.type = "button";
         btnReport.className = "btn-link";
         btnReport.textContent = "Melden (Missbrauch)";
-
         btnReport.addEventListener("click", () => {
           post.reported = true;
           post.reportCount = (post.reportCount || 0) + 1;
@@ -1503,18 +1695,13 @@
     });
   }
 
+  // Posts: Submit
   if (postForm) {
     postForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const profileName = getProfileName();
-      if (!profileName) {
-        alert("Bitte lege zuerst dein Profil mit vollständigem Namen an.");
-        setActivePage("profile");
-        const profileHint = document.getElementById("profile-hint");
-        if (profileHint) profileHint.style.display = "block";
-        return;
-      }
+      if (!isLoggedIn()) { alert("Bitte zuerst anmelden."); openLoginModal(); return; }
 
+      const profileName = getProfileName();
       const title = document.getElementById("post-title").value.trim();
       const text = document.getElementById("post-text").value.trim();
 
@@ -1540,12 +1727,7 @@
         if (opt1) options.push({ text: opt1, votes: 0 });
         if (opt2) options.push({ text: opt2, votes: 0 });
         if (opt3) options.push({ text: opt3, votes: 0 });
-        if (options.length) {
-          newPost.poll = {
-            question: pollQuestion,
-            options
-          };
-        }
+        if (options.length) newPost.poll = { question: pollQuestion, options };
       }
 
       posts.push(newPost);
@@ -1555,122 +1737,267 @@
     });
   }
 
-  // ---------- Profil ----------
+  // ---------- Profil / Rolle / Logout ----------
   const profileForm = document.getElementById("profile-form");
   const profileNameInput = document.getElementById("profile-name");
   const logoutBtn = document.getElementById("logout-btn");
   const roleInfoEl = document.getElementById("role-info");
-
-  let currentRole = "member"; // "member" oder "admin"
+  const passwordAdminCard = document.getElementById("password-admin-card");
 
   function loadProfile() {
     const profile = loadData("vereinsapp_profile", { name: "" });
-    profileNameInput.value = profile.name || "";
+    if (profileNameInput) profileNameInput.value = profile.name || "";
   }
 
   function updateRoleDisplay() {
     if (!roleInfoEl) return;
+
     if (currentRole === "admin") {
       roleInfoEl.textContent = "Rolle: Vorstand";
       if (eventAdminCard) eventAdminCard.style.display = "block";
+      const appImpAdmin = document.getElementById("app-imp-admin");
+      if (appImpAdmin) appImpAdmin.style.display = "block";
+      if (passwordAdminCard) passwordAdminCard.style.display = "block";
     } else {
       roleInfoEl.textContent = "Rolle: Mitglied";
       if (eventAdminCard) eventAdminCard.style.display = "none";
+      const appImpAdmin = document.getElementById("app-imp-admin");
+      if (appImpAdmin) appImpAdmin.style.display = "none";
+      if (passwordAdminCard) passwordAdminCard.style.display = "none";
     }
   }
 
   if (profileForm) {
     profileForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const name = profileNameInput.value.trim();
+      if (!isLoggedIn()) { alert("Bitte zuerst anmelden."); openLoginModal(); return; }
+
+      const name = (profileNameInput?.value || "").trim();
       if (!name) {
         alert("Bitte gib deinen vollständigen Namen ein.");
         return;
       }
       saveData("vereinsapp_profile", { name });
-      const profileHint = document.getElementById("profile-hint");
-      if (profileHint) profileHint.style.display = "none";
       alert("Profil gespeichert.");
+    });
+  }
+
+  function logoutEverywhere() {
+    localStorage.removeItem("vereinsapp_access_granted");
+    localStorage.removeItem("vereinsapp_role");
+    updatePublicAdminUI();
+    updatePublicLoginTab();
+    showPublic();
+  }
+
+  const appLogoutTop = document.getElementById("app-logout-btn");
+  if (appLogoutTop) {
+    appLogoutTop.addEventListener("click", () => {
+      if (!confirm("Möchtest du dich wirklich abmelden?")) return;
+      logoutEverywhere();
     });
   }
 
   if (logoutBtn) {
     logoutBtn.addEventListener("click", () => {
       if (!confirm("Möchtest du dich wirklich abmelden?")) return;
-      localStorage.removeItem("vereinsapp_access_granted");
-      localStorage.removeItem("vereinsapp_role");
-      document.getElementById("app-container").style.display = "none";
-      document.getElementById("access-screen").style.display = "flex";
-      document.getElementById("access-code").value = "";
+      logoutEverywhere();
     });
   }
 
-  // ---------- Zugangscode / App-Freigabe ----------
-  const ACCESS_CODE_MEMBER = "OERREL2025";   // Code für Mitglieder
-  const ACCESS_CODE_ADMIN  = "VORSTAND2025"; // Code für Vorstand
+  // App-Impressum speichern (nur Vorstand)
+  const appImpressumForm = document.getElementById("app-impressum-form");
+  if (appImpressumForm) {
+    appImpressumForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (currentRole !== "admin") return;
 
-  const accessScreen = document.getElementById("access-screen");
+      const name = document.getElementById("app-imp-name-input").value.trim();
+      const address = document.getElementById("app-imp-address-input").value.trim();
+      const email = document.getElementById("app-imp-email-input").value.trim();
+      const boardRaw = document.getElementById("app-imp-board-input").value || "";
+      const boardLines = boardRaw.split("\n").map(s => s.trim()).filter(Boolean);
+
+      saveData("vereinsapp_impressum", { name, address, email, boardLines });
+      renderImpressumEverywhere();
+      alert("Impressum gespeichert.");
+    });
+  }
+
+  // ---------- Passwort ändern (nur Vorstand) ----------
+  const pwChangeForm = document.getElementById("password-change-form");
+  if (pwChangeForm) {
+    pwChangeForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (currentRole !== "admin") return;
+
+      const cfg = getAccessConfig();
+      const currentAdmin = document.getElementById("admin-current-pass").value.trim();
+      const newMember = document.getElementById("new-member-pass").value.trim();
+      const newAdmin = document.getElementById("new-admin-pass").value.trim();
+
+      if (currentAdmin !== cfg.adminPassword) {
+        alert("Aktuelles Vorstandspasswort ist falsch.");
+        return;
+      }
+
+      const next = { ...cfg };
+      if (newMember) next.memberPassword = newMember;
+      if (newAdmin) next.adminPassword = newAdmin;
+
+      saveData("vereinsapp_access", next);
+
+      document.getElementById("admin-current-pass").value = "";
+      document.getElementById("new-member-pass").value = "";
+      document.getElementById("new-admin-pass").value = "";
+
+      alert("Passwörter gespeichert.");
+    });
+  }
+
+  // ---------- View switching ----------
+  const publicContainer = document.getElementById("public-container");
   const appContainer = document.getElementById("app-container");
-  const accessForm = document.getElementById("access-form");
-  const accessInput = document.getElementById("access-code");
-  const accessError = document.getElementById("access-error");
+
+  function showPublic() {
+    if (appContainer) appContainer.style.display = "none";
+    if (publicContainer) publicContainer.style.display = "block";
+    setActivePublicPage("events");
+
+    renderPublicEvents();
+    renderAboutPublic();
+    renderImpressumEverywhere();
+    updatePublicAdminUI();
+    updatePublicLoginTab();
+  }
 
   function showApp() {
-    accessScreen.style.display = "none";
-    appContainer.style.display = "block";
+    if (!isLoggedIn()) { openLoginModal(); return; }
+
+    if (publicContainer) publicContainer.style.display = "none";
+    if (appContainer) appContainer.style.display = "block";
 
     const storedRole = loadData("vereinsapp_role", "member");
     currentRole = storedRole === "admin" ? "admin" : "member";
     updateRoleDisplay();
 
+    events = loadData("vereinsapp_events", []);
+    ads = loadData("vereinsapp_ads", []);
+    posts = loadData("vereinsapp_posts", []);
+
     loadProfile();
+
     renderEvents(currentRole);
     renderAds(currentRole);
     renderPosts(currentRole);
 
-    const profileName = getProfileName();
-    if (!profileName) {
-      const profileHint = document.getElementById("profile-hint");
-      if (profileHint) profileHint.style.display = "block";
-      setActivePage("profile");
-    } else {
-      // Kleinanzeigen-Indikator initial berechnen
-      updateClassifiedsDot();
-    }
+    renderImpressumEverywhere();
+    updateClassifiedsDot();
+    setActivePage("events");
   }
 
-  const hasAccess = loadData("vereinsapp_access_granted", false);
-  if (hasAccess === true) {
-    const storedRole = loadData("vereinsapp_role", "member");
-    currentRole = storedRole === "admin" ? "admin" : "member";
-    showApp();
-  } else {
-    accessScreen.style.display = "flex";
+  const openPublicFromApp = document.getElementById("open-public-from-app");
+  if (openPublicFromApp) openPublicFromApp.addEventListener("click", showPublic);
+
+  const openAppFromPublic = document.getElementById("header-open-app-btn");
+  if (openAppFromPublic) openAppFromPublic.addEventListener("click", showApp);
+
+  // ---------- Login Modal ----------
+  const loginModal = document.getElementById("login-modal");
+  const loginForm = document.getElementById("login-form");
+  const loginName = document.getElementById("login-name");
+  const loginPass = document.getElementById("login-pass");
+  const loginError = document.getElementById("login-error");
+
+  function openLoginModal() {
+    if (!loginModal) return;
+    if (loginError) loginError.style.display = "none";
+    if (loginName) loginName.value = "";
+    if (loginPass) loginPass.value = "";
+    loginModal.style.display = "flex";
+    setTimeout(() => loginName && loginName.focus(), 30);
   }
 
-  if (accessForm) {
-    accessForm.addEventListener("submit", (e) => {
+  function closeLoginModal() {
+    if (!loginModal) return;
+    loginModal.style.display = "none";
+  }
+
+  const loginClose = document.getElementById("login-close");
+  if (loginClose) loginClose.addEventListener("click", closeLoginModal);
+
+  if (loginModal) {
+    loginModal.addEventListener("click", (e) => {
+      if (e.target === loginModal) closeLoginModal();
+    });
+  }
+
+  if (loginForm) {
+    loginForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const code = accessInput.value.trim();
 
-      if (code === ACCESS_CODE_MEMBER) {
+      const name = (loginName.value || "").trim();
+      const pass = (loginPass.value || "").trim();
+      if (!name || !pass) return;
+
+      const cfg = getAccessConfig();
+
+      if (pass === cfg.adminPassword) {
         saveData("vereinsapp_access_granted", true);
-        saveData("vereinsapp_role", "member");
-        currentRole = "member";
-        accessError.style.display = "none";
+        setRole("admin");
+        saveData("vereinsapp_profile", { name });
+        if (loginError) loginError.style.display = "none";
+        closeLoginModal();
+        updatePublicAdminUI();
+        updatePublicLoginTab();
         showApp();
-      } else if (code === ACCESS_CODE_ADMIN) {
+        return;
+      }
+
+      if (pass === cfg.memberPassword) {
         saveData("vereinsapp_access_granted", true);
-        saveData("vereinsapp_role", "admin");
-        currentRole = "admin";
-        accessError.style.display = "none";
+        setRole("member");
+        saveData("vereinsapp_profile", { name });
+        if (loginError) loginError.style.display = "none";
+        closeLoginModal();
+        updatePublicAdminUI();
+        updatePublicLoginTab();
         showApp();
+        return;
+      }
+
+      if (loginError) loginError.style.display = "block";
+    });
+  }
+
+  // ---------- Public Tab Login Button Action ----------
+  if (pubLoginTabBtn) {
+    pubLoginTabBtn.addEventListener("click", () => {
+      if (isLoggedIn()) {
+        const role = loadData("vereinsapp_role", "member");
+        const label = role === "admin" ? "als Vorstand abmelden" : "abmelden";
+        if (!confirm("Möchtest du dich wirklich " + label + "?")) return;
+        logoutEverywhere();
       } else {
-        accessError.style.display = "block";
+        openLoginModal();
       }
     });
   }
+
+  // ---------- INIT: immer öffentlich starten ----------
+  ensureDefaults();
+
+  if (publicContainer) publicContainer.style.display = "block";
+  if (appContainer) appContainer.style.display = "none";
+
+  renderPublicEvents();
+  renderAboutPublic();
+  renderImpressumEverywhere();
+  updatePublicAdminUI();
+  updatePublicLoginTab();
+  setActivePublicPage("events");
 </script>
 
 </body>
 </html>
+```
